@@ -67,7 +67,7 @@
                                 <span>HRM</span>
                             </a>
                             <ul class="submenu ">
-                                <li class="submenu-item ">
+                                <li class="submenu-item">
                                     <a href="{{route('employee.index', ['role' =>currentUser()])}}">Employee</a>
                                 </li>
 

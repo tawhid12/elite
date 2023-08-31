@@ -69,7 +69,7 @@
                             <input type="text" id="bn_applicants_name" value="{{old('bn_mothers_name')}}" class="form-control" placeholder="" name="bn_mothers_name">
                         </div>
                     </div>
-                    {{--  <div class="col-md-4 col-12">
+                    <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_applicants_name">স্বামীর নাম</label>
                             <input type="text" id="bn_applicants_name" value="{{old('bn_husband_name')}}" class="form-control" placeholder="" name="bn_husband_name">
@@ -92,156 +92,101 @@
                             <label for="bn_applicants_name">মেয়ের নাম</label>
                             <input type="text" id="bn_applicants_name" value="{{old('bn_daughter_name')}}" class="form-control" placeholder="" name="bn_daughter_name">
                         </div>
-                    </div>  --}}
-                </div>
-                <div class="row mt-2">
-                    <h6 class="">স্থায়ী ঠিকানা </h6>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">হোল্ডিং নং</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="bn_pre_holding_no">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">ওয়ার্ড নং</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_word_no')}}" class="form-control" placeholder="ওয়ার্ড নং" name="bn_pre_word_no">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">গ্রামের নাম</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_pre_village_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">ইউনিয়ন</label>
-                            <select name="bn_pre_union_id" class="form-control js-example-basic-single" id="bn_pre_union_id">
-                                <option value="">Select Union</option>
-                                <option value="1">Banskhali</option>
-                                <option value="2">Boalkhali</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">পোঃ</label>
-                            <select name="bn_pre_post_ofc_id" class="form-control js-example-basic-single" id="bn_pre_post_ofc_id">
-                                <option value="">Select Post Office</option>
-                                <option value="1">Panchlaish</option>
-                                <option value="2">Halishahar</option>
-                            </select>
-                        </div>
-                    </div>
-                    {{--  <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">থানা</label>
-                            <select name="bn_pre_thana_id" class="form-control js-example-basic-single" id="bn_pre_thana_id">
-                                <option value="">Select Thana</option>
-                                <option value="1">Panchlaish</option>
-                                <option value="2">Halishahar</option>
-                            </select>
-                        </div>
-                    </div>  --}}
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">উপজেলা</label>
-                            <select name="bn_pre_upazila_id" class="form-control js-example-basic-single" id="bn_pre_upazila_id">
-                                <option value="">Select Upazila</option>
-                                <option value="1">Fatikchori</option>
-                                <option value="2">Boalkhali</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">জেলা</label>
-                            <select name="bn_pre_district_id" class="form-control js-example-basic-single" id="bn_pre_district_id">
-                                <option value="">Select Discrict</option>
-                                <option value="1">Chittagong</option>
-                                <option value="2">Dhaka</option>
-                            </select>
-                        </div>
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <h6 class="">বর্তমান ঠিকানা </h6>
-                </div>
-                <div class="row">
+                <div class="row mt-3 gx-1">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">হোল্ডিং নং</label>
-                            <input type="text" id="bn_prem_holding_no" value="{{old('bn_prem_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="bn_prem_holding_no">
+                            <label for="bn_applicants_name">স্থায়ী ঠিকানা</label>
+                            <div class="row gx-1 my-2">
+                                <div class="col-md-6 col-12">
+                                    <input type="text" id="bn_applicants_name" value="{{old('bn_pre_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="bn_pre_holding_no">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <input type="text" id="bn_applicants_name" value="{{old('bn_pre_word_no')}}" class="form-control" placeholder="ওয়ার্ড নং" name="bn_pre_word_no">
+                                </div>
+                            </div>
+                            <div class="row gx-1 my-2">
+                                <div class="col-md-6 col-12">
+                                    <select name="bn_pre_post_ofc_id" class="form-control js-example-basic-single" id="bn_pre_post_ofc_id">
+                                        <option value="">Select Post Office</option>
+                                        <option value="1">Panchlaish</option>
+                                        <option value="2">Halishahar</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <select name="bn_pre_thana_id" class="form-control js-example-basic-single" id="bn_pre_thana_id">
+                                        <option value="">Select Thana</option>
+                                        <option value="1">Panchlaish</option>
+                                        <option value="2">Halishahar</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row gx-1 my-2">
+                                <div class="col-md-6 col-12">
+                                    <input type="text" id="bn_applicants_name" value="{{old('bn_pre_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_pre_village_name">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <select name="bn_pre_union_id" class="form-control js-example-basic-single" id="bn_pre_union_id">
+                                        <option value="">Select Union</option>
+                                        <option value="1">Banskhali</option>
+                                        <option value="2">Boalkhali</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row gx-1 my-2">
+                                <div class="col-md-6 col-12">
+                                    <select name="bn_pre_upazila_id" class="form-control js-example-basic-single" id="bn_pre_upazila_id">
+                                        <option value="">Select Upazila</option>
+                                        <option value="1">Fatikchori</option>
+                                        <option value="2">Boalkhali</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <select name="bn_pre_district_id" class="form-control js-example-basic-single" id="bn_pre_district_id">
+                                        <option value="">Select Discrict</option>
+                                        <option value="1">Chittagong</option>
+                                        <option value="2">Dhaka</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">ওয়ার্ড নং</label>
-                            <input type="text" id="bn_prem_road_no" value="{{old('bn_prem_road_no')}}" class="form-control" placeholder="রোড নং" name="bn_prem_road_no">
+                            <label for="bn_applicants_name">বর্তমান ঠিকানা</label>
+                            <div class="row gx-1 my-2">
+                                <div class="col-md-6 col-12">
+                                    <input type="text" id="bn_prem_holding_no" value="{{old('bn_prem_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="bn_prem_holding_no">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <input type="text" id="bn_prem_road_no" value="{{old('bn_prem_road_no')}}" class="form-control" placeholder="রোড নং" name="bn_prem_road_no">
+                                </div>
+                            </div>
+                            <div class="row gx-1 my-2">
+                                <div class="col-md-6 col-12">
+                                    <input type="text" id="bn_prem_village_name" value="{{old('bn_prem_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_prem_village_name">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <select name="en_prem_district_id" class="form-control js-example-basic-single" id="en_prem_district_id">
+                                        <option value="">Select Discrict</option>
+                                        <option value="1">Chittagong</option>
+                                        <option value="2">Dhaka</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row gx-1 my-2">
+                                <div class="col-md-12 col-12">
+                                    <select name="bn_prem_thana_id" class="form-control js-example-basic-single" id="bn_prem_thana_id">
+                                        <option value="">Select Thana</option>
+                                        <option value="1">Panchlaish</option>
+                                        <option value="2">Halishahar</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">গ্রামের নাম</label>
-                            <input type="text" id="bn_prem_village_name" value="{{old('bn_prem_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_prem_village_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">ইউনিয়ন</label>
-                            <select name="bn_pre_union_id" class="form-control js-example-basic-single" id="bn_pre_union_id">
-                                <option value="">Select Union</option>
-                                <option value="1">Banskhali</option>
-                                <option value="2">Boalkhali</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">পোঃ</label>
-                            <select name="bn_pre_post_ofc_id" class="form-control js-example-basic-single" id="bn_pre_post_ofc_id">
-                                <option value="">Select Post Office</option>
-                                <option value="1">Panchlaish</option>
-                                <option value="2">Halishahar</option>
-                            </select>
-                        </div>
-                    </div>
-                    {{--  <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">থানা</label>
-                            <select name="bn_prem_thana_id" class="form-control js-example-basic-single" id="bn_prem_thana_id">
-                                <option value="">Select Thana</option>
-                                <option value="1">Panchlaish</option>
-                                <option value="2">Halishahar</option>
-                            </select>
-                        </div>
-                    </div>  --}}
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">উপজেলা</label>
-                            <select name="bn_pre_upazila_id" class="form-control js-example-basic-single" id="bn_pre_upazila_id">
-                                <option value="">Select Upazila</option>
-                                <option value="1">Fatikchori</option>
-                                <option value="2">Boalkhali</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">জেলা</label>
-                            <select name="en_prem_district_id" class="form-control js-example-basic-single" id="en_prem_district_id">
-                                <option value="">Select Discrict</option>
-                                <option value="1">Chittagong</option>
-                                <option value="2">Dhaka</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    {{--  <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_applicants_name">সুপারিশ/রেফারেন্স নাম</label>
                             <input type="text" id="bn_ref_name" value="{{old('bn_ref_name')}}" class="form-control" placeholder="" name="bn_ref_name">
@@ -254,162 +199,42 @@
                                     <input type="text" id="bn_nationality" value="{{old('bn_nationality')}}" class="form-control" placeholder="" name="bn_nationality">
                                 </div>
                                 <div class="col-md-6 col-12">
-
+                                    <label for="bn_religion">ধর্ম</label>
+                                    <select name="bn_religion" class="form-control js-example-basic-single" id="bn_religion">
+                                        <option value="">Select</option>
+                                        <option value="1">Muslim</option>
+                                        <option value="2">Hindu</option>
+                                        <option value="3">Buddhist</option>
+                                        <option value="4">Christian</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
-                    </div>  --}}
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">সনাক্তহকরণ চিহ্ন</label>
-                            <input type="text" id="bn_identification_mark" value="{{old('bn_identification_mark')}}" class="form-control" placeholder="" name="bn_identification_mark">
-                        </div>
                     </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">শিক্ষাগতা যোগ্যতা</label>
-                            <input type="text" id="bn_edu_qualification" value="{{old('bn_edu_qualification')}}" class="form-control" placeholder="" name="bn_edu_qualification">
+                    <div class="row my-2 gx-1">
+                        <div class="col-md-3 col-12">
+                            <div class="form-group">
+                                <label for="bn_identification_mark">সনাক্তহকরণ চিহ্ন</label>
+                                <input type="text" id="bn_identification_mark" value="{{old('bn_identification_mark')}}" class="form-control" placeholder="" name="bn_identification_mark">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">রক্তের গ্রুপ</label>
-                            <select name="blood_id" class="form-control js-example-basic-single" id="blood_id">
-                                <option value="">Select</option>
-                                <option value="1">A+</option>
-                                <option value="2">A-</option>
-                                <option value="3">B+</option>
-                                <option value="4">B-</option>
-                            </select>
+                        <div class="col-md-3 col-12">
+                            <div class="form-group">
+                                <label for="bn_edu_qualification">শিক্ষাগতা যোগ্যতা</label>
+                                <input type="text" id="bn_edu_qualification" value="{{old('bn_edu_qualification')}}" class="form-control" placeholder="" name="bn_edu_qualification">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">জন্ম তারিখ</label>
-                            <input type="date" id="bn_dob" value="{{old('bn_dob')}}" class="form-control" placeholder="" name="bn_dob">
+                        <div class="col-md-3 col-12">
+                            <div class="form-group">
+                                <label for="bn_experience">অভিজ্ঞতা</label>
+                                <input type="text" id="bn_experience" value="{{old('bn_experience')}}" class="form-control" placeholder="" name="bn_experience">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">বয়স</label>
-                            <input readonly type="text" id="bn_age" value="{{old('bn_age')}}" class="form-control" placeholder="" name="bn_age">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">জন্ম নিবন্ধন নং</label>
-                            <input type="text" id="bn_birth_certificate" value="{{old('bn_birth_certificate')}}" class="form-control" placeholder="" name="bn_birth_certificate">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">জাতীয় পরিচয়পত্র নং</label>
-                            <input type="text" id="bn_nid_no" value="{{old('bn_nid_no')}}" class="form-control" placeholder="" name="bn_nid_no">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">জাতীয়তা</label>
-                            <input type="text" id="bn_nid_no" value="{{old('bn_nid_no','বাংলাদেশী')}}" class="form-control" placeholder="" name="bn_nid_no">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_religion">ধর্ম</label>
-                            <select name="bn_religion" class="form-control js-example-basic-single" id="bn_religion">
-                                <option value="">Select</option>
-                                <option value="1">Muslim</option>
-                                <option value="2">Hindu</option>
-                                <option value="3">Buddhist</option>
-                                <option value="4">Christian</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-6">
-                        <div class="form-group mt-3">
-                            <label for="bn_experience">উচ্চতা</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-12">
-                        <div class="form-group">
-                            <label for="bn_applied_post">ফুট</label>
-                            <input type="text" id="bn_applied_post" value="{{old('bn_applied_post')}}" class="form-control" placeholder="" name="bn_applied_post">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-12">
-                        <div class="form-group">
-                            <label for="bn_applied_post">ইঞ্চি</label>
-                            <input type="text" id="bn_applied_post" value="{{old('bn_applied_post')}}" class="form-control" placeholder="" name="bn_applied_post">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="form-group mt-3">
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-6">
-                        <div class="form-group mt-3">
-                            <label for="bn_experience">ওজন</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-12">
-                        <div class="form-group">
-                            <label for="bn_applied_post">কেজি</label>
-                            <input type="text" id="bn_applied_post" value="{{old('bn_applied_post')}}" class="form-control" placeholder="" name="bn_applied_post">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-12">
-                        <div class="form-group">
-                            <label for="bn_applied_post">পাউন্ড</label>
-                            <input type="text" id="bn_applied_post" value="{{old('bn_applied_post')}}" class="form-control" placeholder="" name="bn_applied_post">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-12">
-                        <div class="form-group">
-                            <label for="bn_applied_post">অভিজ্ঞতা</label>
-                            <input type="text" id="bn_experience" value="{{old('bn_experience')}}" class="form-control" placeholder="" name="bn_experience">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_religion">বৈবাহিক অবস্থা</label>
-                            <select name="bn_religion" class="form-control js-example-basic-single" id="bn_religion">
-                                <option value="1">অবিবাহিত</option>
-                                <option value="2">বিবাহিত</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-12">
-                        <div class="form-group">
-                            <label for="bn_applied_post">স্বামী/স্ত্রীর নাম</label>
-                            <input type="text" id="bn_experience" value="{{old('bn_experience')}}" class="form-control" placeholder="" name="bn_experience">
-                        </div>
-                    </div>
-                    {{--  <div class="row my-2 gx-1">
                         <div class="col-md-3 col-12">
                             <div class="form-group">
                                 <label for="bn_applied_post">আবেদিত পদ</label>
                                 <input type="text" id="bn_applied_post" value="{{old('bn_applied_post')}}" class="form-control" placeholder="" name="bn_applied_post">
                             </div>
-                        </div>
-                    </div>  --}}
-                </div>
-                <div class="row Repeter">
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">ছেলের নাম</label>
-                            <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name[]">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="daughters_name">মেয়ের নাম</label>
-                            <input type="text" id="daughters_name" value="{{old('daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="daughters_name[]">
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 ps-0">
-                        <div class="form-group text-primary mt-3" style="font-size:1.3rem">
-                            {{--  <span onClick='SongsRepeter(this);' class="delete-row text-danger"><i class="bi bi-trash-fill"></i></span>  --}}
-                             <span onClick='newSongsRepeter(this);'><i class="bi bi-plus-square-fill"></i></span>
                         </div>
                     </div>
                 </div>
@@ -881,30 +706,6 @@
 </div>
 @endsection
 @push('scripts')
-function newSongsRepeter(e){
-    var Repeter=`
-    <div class="col-md-4 col-12">
-        <div class="form-group">
-            <label for="bn_applicants_name">ছেলের নাম</label>
-            <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name[]">
-        </div>
-    </div>
-    <div class="col-md-4 col-12">
-        <div class="form-group">
-            <label for="daughters_name">মেয়ের নাম</label>
-            <input type="text" id="daughters_name" value="{{old('daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="daughters_name[]">
-        </div>
-    </div>
-    <div class="col-lg-2 col-md-3 col-sm-6 ps-0">
-        <div class="form-group text-primary mt-3" style="font-size:1.3rem">
-            <span onClick='SongsRepeter(this);' class="delete-row text-danger"><i class="bi bi-trash-fill"></i></span>
-                {{--  <span onClick='Repeter();'><i class="bi bi-plus-square-fill"></i></span>  --}}
-        </div>
-    </div>
-    `;
-
-    $('.Repeter').append(Repeter);
-}
 <script src="{{ asset('/assets/extensions/filepond/filepond.js') }}"></script>
 <script src="{{ asset('/assets/extensions/toastify-js/src/toastify.js') }}"></script>
 <script src="{{ asset('/assets/js/pages/filepond.js') }}"></script>
