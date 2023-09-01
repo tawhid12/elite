@@ -4,7 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController as auth;
 use App\Http\Controllers\DashboardController as dash;
 
-
+use App\Http\Controllers\Settings\Location\CountryController as country;
+use App\Http\Controllers\Settings\Location\DivisionController as division;
+use App\Http\Controllers\Settings\Location\DistrictController as district;
+use App\Http\Controllers\Settings\Location\UpazilaController as upazila;
+use App\Http\Controllers\Settings\Location\ThanaController as thana;
 
 
 
@@ -66,8 +70,15 @@ Route::get('/logout', [auth::class,'singOut'])->name('logOut');
 //Route::middleware('checkRole')->group(function () {
 
 Route::group(['middleware'=>isSuperadmin::class],function(){
-    //Route::prefix('superadmin')->group(function(){
-        Route::prefix('{role}')->group(function () {
+    Route::prefix('superadmin')->group(function(){
+        // Route::prefix('{role}')->group(function () {
+
+        Route::resource('country',country::class,['as'=>'superadmin']);
+        Route::resource('division',division::class,['as'=>'superadmin']);
+        Route::resource('district',district::class,['as'=>'superadmin']);
+        Route::resource('upazila',upazila::class,['as'=>'superadmin']);
+        Route::resource('thana',thana::class,['as'=>'superadmin']);
+
         Route::get('/dashboard', [dash::class,'superadminDashboard'])->name('dashboard');
 
         Route::get('/profile', [userprofile::class,'profile'])->name('profile');
@@ -75,11 +86,11 @@ Route::group(['middleware'=>isSuperadmin::class],function(){
         Route::get('/change_password', [userprofile::class,'change_password'])->name('change_password');
         Route::post('/change_password', [userprofile::class,'change_password_store'])->name('change_password.store');
 
-       
+
         Route::resource('employee', employee::class);
         Route::get('employee/{id}', 'EmployeeController@show')->name('employee.show');
 
-       
+
     });
 });
 Route::group(['middleware'=>isAdmin::class],function(){
@@ -87,7 +98,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/dashboard', [dash::class,'adminDashboard'])->name('admin.dashboard');
         /* settings */
 
-        
+
     });
 });
 
