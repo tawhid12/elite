@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('upazilas', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('name_bn')->nullable();
             $table->unsignedBigInteger('district_id')->nullable()->index();
             $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');

@@ -100,20 +100,22 @@
                 <div class="row">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">হোল্ডিং নং</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="bn_pre_holding_no">
+                            <label for="bn_applicants_name">জেলা</label>
+                            <select name="bn_pre_district_id" class="form-control js-example-basic-single" id="bn_pre_district_id">
+                                <option value="">Select Discrict</option>
+                                <option value="1">Chittagong</option>
+                                <option value="2">Dhaka</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">ওয়ার্ড নং</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_word_no')}}" class="form-control" placeholder="ওয়ার্ড নং" name="bn_pre_word_no">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">গ্রামের নাম</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_pre_village_name">
+                            <label for="bn_applicants_name">উপজেলা</label>
+                            <select name="bn_pre_upazila_id" class="form-control js-example-basic-single" id="bn_pre_upazila_id">
+                                <option value="">Select Upazila</option>
+                                <option value="1">Fatikchori</option>
+                                <option value="2">Boalkhali</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -124,6 +126,24 @@
                                 <option value="1">Banskhali</option>
                                 <option value="2">Boalkhali</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_applicants_name">ওয়ার্ড নং</label>
+                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_word_no')}}" class="form-control" placeholder="ওয়ার্ড নং" name="bn_pre_word_no">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_applicants_name">হোল্ডিং নং</label>
+                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="bn_pre_holding_no">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_applicants_name">গ্রামের নাম</label>
+                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_pre_village_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -146,26 +166,6 @@
                             </select>
                         </div>
                     </div>  --}}
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">উপজেলা</label>
-                            <select name="bn_pre_upazila_id" class="form-control js-example-basic-single" id="bn_pre_upazila_id">
-                                <option value="">Select Upazila</option>
-                                <option value="1">Fatikchori</option>
-                                <option value="2">Boalkhali</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">জেলা</label>
-                            <select name="bn_pre_district_id" class="form-control js-example-basic-single" id="bn_pre_district_id">
-                                <option value="">Select Discrict</option>
-                                <option value="1">Chittagong</option>
-                                <option value="2">Dhaka</option>
-                            </select>
-                        </div>
-                    </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_applicants_name">মোবাইল নং নিজ</label>

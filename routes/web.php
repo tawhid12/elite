@@ -9,6 +9,7 @@ use App\Http\Controllers\Settings\Location\DivisionController as division;
 use App\Http\Controllers\Settings\Location\DistrictController as district;
 use App\Http\Controllers\Settings\Location\UpazilaController as upazila;
 use App\Http\Controllers\Settings\Location\ThanaController as thana;
+use App\Http\Controllers\Settings\Location\UnionController as union;
 
 
 
@@ -78,6 +79,7 @@ Route::group(['middleware'=>isSuperadmin::class],function(){
         Route::resource('district',district::class,['as'=>'superadmin']);
         Route::resource('upazila',upazila::class,['as'=>'superadmin']);
         Route::resource('thana',thana::class,['as'=>'superadmin']);
+        Route::resource('union',union::class,['as'=>'superadmin']);
 
         Route::get('/dashboard', [dash::class,'superadminDashboard'])->name('dashboard');
 

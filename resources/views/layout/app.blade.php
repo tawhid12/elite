@@ -12,6 +12,8 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/logo.png') }}" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="{{ asset('assets/extensions/choices.js/public/assets/styles/choices.css')}}">
+
     <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
     {{--<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">--}}
     <link rel="stylesheet" href="{{ asset('/assets/extensions/laravel-toster/toastr.min.css') }}">
@@ -211,6 +213,7 @@
     <script src="{{asset('assets/moment/moment.min.js')}}"></script>
     <!-- Bootstrap Date Range Picker  -->
     <script src="{{asset('assets/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{ asset('assets/extensions/choices.js/public/assets/scripts/choices.js')}}"></script>
 
     @stack('scripts')
     {!! Toastr::message() !!}
