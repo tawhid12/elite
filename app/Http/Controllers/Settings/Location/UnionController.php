@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Union;
+use App\Http\Traits\ResponseTrait;
+use Exception;
 
 class UnionController extends Controller
 {
+    use ResponseTrait;
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +42,19 @@ class UnionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $union=new Union;
+            $union->upazila_id=$request->upazila_id;
+            $union->name=$request->unionName;
+            $union->name_bn=$request->unionBn;
+            if($union->save())
+                return redirect()->route(currentUser().'.union.index')->with($this->resMessageHtml(true,null,'Successfully created'));
+            else
+                return redirect()->back()->withInput()->with($this->resMessageHtml(false,'error','please try again'));
+        }catch(Exception $e){
+            dd($e);
+            return redirect()->back()->withInput()->with($this->resMessageHtml(false,'error','Please try again'));
+        }
     }
 
     /**
@@ -61,7 +76,9 @@ class UnionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $upazilas=Upazila::all();
+        $union= Union::findOrFail(encryptor('decrypt',$id));
+        return view('settings.location.union.edit',compact('union','upazilas'));
     }
 
     /**
@@ -73,7 +90,19 @@ class UnionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $union= Union::findOrFail(encryptor('decrypt',$id));
+            $union->upazila_id=$request->upazila_id;
+            $union->name=$request->unionName;
+            $union->name_bn=$request->unionBn;
+            if($union->save())
+                return redirect()->route(currentUser().'.union.index')->with($this->resMessageHtml(true,null,'Successfully update'));
+                else
+                return redirect()->back()->withInput()->with($this->resMessageHtml(false,'error','Please try again'));
+        }catch(Exception $e){
+            dd($e);
+            return redirect()->back()->withInput()->with($this->resMessageHtml(false,'error','Please try again'));
+        }
     }
 
     /**

@@ -36,7 +36,7 @@
                                 <td>{{$d->name}}</td>
                                 <td>{{$d->name_bn}}</td>
                                 <td class="white-space-nowrap">
-                                    <a href="{{route(currentUser().'.thana.edit',encryptor('encrypt',$d->id))}}">
+                                    <a href="{{route(currentUser().'.union.edit',encryptor('encrypt',$d->id))}}">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <!--<a href="javascript:void()" onclick="$('#form{{$d->id}}').submit()">
