@@ -65,6 +65,9 @@
                                     <a href="{{route(currentUser().'.union.index')}}">{{__('Unions')}}</a>
                                 </li>
                                 <li class="submenu-item ">
+                                    <a href="{{route(currentUser().'.ward.index')}}">{{__('Wards')}}</a>
+                                </li>
+                                <li class="submenu-item ">
                                     <a href="">Post Office</a>
                                 </li>
                                 <li class="submenu-item ">

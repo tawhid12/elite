@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Employee\Employee;
 use Illuminate\Http\Request;
 
+use App\Models\Settings\Location\District;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
+use App\Models\Settings\Location\Ward;
+
 use Toastr;
 use Carbon\Carbon;
 use DB;
@@ -36,7 +41,11 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee.create');
+        $districts = District::all();
+        $upazila = Upazila::all();
+        $union = Union::all();
+        $ward = Ward::all();
+        return view('employee.create',compact('districts','upazila','union','ward'));
     }
 
     /**

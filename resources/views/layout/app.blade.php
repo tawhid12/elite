@@ -214,6 +214,7 @@
     <!-- Bootstrap Date Range Picker  -->
     <script src="{{asset('assets/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
     <script src="{{ asset('assets/extensions/choices.js/public/assets/scripts/choices.js')}}"></script>
+    <script src="{{ asset('/assets/js/pages/form-element-select.js') }}"></script>
 
     @stack('scripts')
     {!! Toastr::message() !!}

@@ -101,37 +101,53 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_applicants_name">জেলা</label>
-                            <select name="bn_pre_district_id" class="form-control js-example-basic-single" id="bn_pre_district_id">
-                                <option value="">Select Discrict</option>
-                                <option value="1">Chittagong</option>
-                                <option value="2">Dhaka</option>
+                            <select onchange="show_upazila(this.value)" name="bn_pre_district_id" class="choices form-control js-example-basic-single" id="bn_pre_district_id">
+                                <option value="">নির্বাচন করুন</option>
+                                @forelse($districts as $d)
+                                <option value="{{$d->id}}" {{ old('bn_pre_district_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                @empty
+                                    <option value="">No Country found</option>
+                                @endforelse
                             </select>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_applicants_name">উপজেলা</label>
-                            <select name="bn_pre_upazila_id" class="form-control js-example-basic-single" id="bn_pre_upazila_id">
-                                <option value="">Select Upazila</option>
-                                <option value="1">Fatikchori</option>
-                                <option value="2">Boalkhali</option>
+                            <select onchange="show_unions(this.value)" name="bn_pre_upazila_id" class=" form-control js-example-basic-single" id="bn_pre_upazila_id">
+                                <option value="">নির্বাচন করুন</option>
+                                @forelse($upazila as $d)
+                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('bn_pre_upazila_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                @empty
+                                    <option value="">No district found</option>
+                                @endforelse
                             </select>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">ইউনিয়ন</label>
-                            <select name="bn_pre_union_id" class="form-control js-example-basic-single" id="bn_pre_union_id">
-                                <option value="">Select Union</option>
-                                <option value="1">Banskhali</option>
-                                <option value="2">Boalkhali</option>
+                            <label for="">ইউনিয়ন</label>
+                            <select name="bn_pre_union_id" class=" form-control" id="bn_pre_union_id">
+                                <option value="">নির্বাচন করুন</option>
+                                @forelse($union as $u)
+                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('bn_pre_union_id')==$u->id?"selected":""}}> {{ $u->name_bn}}</option>
+                                @empty
+                                    <option value="">No district found</option>
+                                @endforelse
                             </select>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">ওয়ার্ড নং</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_pre_word_no')}}" class="form-control" placeholder="ওয়ার্ড নং" name="bn_pre_word_no">
+                            <label for="bn_ward_name">ওয়ার্ড নং</label>
+                            <select name="bn_ward_name" class=" form-control js-example-basic-single" id="bn_ward_name">
+                                <option value="">নির্বাচন করুন</option>
+                                @forelse($ward as $d)
+                                <option value="{{$d->id}}" {{ old('bn_ward_name')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                @empty
+                                    <option value="">No district found</option>
+                                @endforelse
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -149,11 +165,7 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_applicants_name">পোঃ</label>
-                            <select name="bn_pre_post_ofc_id" class="form-control js-example-basic-single" id="bn_pre_post_ofc_id">
-                                <option value="">Select Post Office</option>
-                                <option value="1">Panchlaish</option>
-                                <option value="2">Halishahar</option>
-                            </select>
+                            <input type="text" id="bn_pre_post_ofc_id" value="{{old('bn_pre_post_ofc_id')}}" class="form-control" placeholder="পোঃ" name="bn_pre_post_ofc_id">
                         </div>
                     </div>
                     {{--  <div class="col-md-4 col-12">
@@ -794,6 +806,23 @@
     </script>
 @endsection
 @push('scripts')
+<script>
+    /* call on load page */
+    $(document).ready(function(){
+        $('.district').hide();
+        $('.upazila').hide();
+    })
+
+    function show_upazila(e){
+         $('.district').hide();
+         $('.district'+e).show();
+    }
+    function show_unions(e){
+         $('.upazila').hide();
+         $('.upazila'+e).show();
+    }
+
+</script>
 
 <script src="{{ asset('/assets/extensions/filepond/filepond.js') }}"></script>
 <script src="{{ asset('/assets/extensions/toastify-js/src/toastify.js') }}"></script>
