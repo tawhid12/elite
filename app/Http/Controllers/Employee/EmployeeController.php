@@ -11,6 +11,8 @@ use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Union;
 use App\Models\Settings\Location\Ward;
+use App\Models\Settings\BloodGroup;
+use App\Models\Settings\Religion;
 
 use Toastr;
 use Carbon\Carbon;
@@ -45,7 +47,9 @@ class EmployeeController extends Controller
         $upazila = Upazila::all();
         $union = Union::all();
         $ward = Ward::all();
-        return view('employee.create',compact('districts','upazila','union','ward'));
+        $bloods = BloodGroup::all();
+        $religions = Religion::all();
+        return view('employee.create',compact('districts','upazila','union','ward','bloods','religions'));
     }
 
     /**
