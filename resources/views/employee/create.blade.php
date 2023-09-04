@@ -471,34 +471,34 @@
                     <h6 class="border-bottom my-2">English</h6>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">Applicant's Name</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_applicants_name')}}" class="form-control" placeholder="" name="bn_applicants_name">
+                            <label for="en_applicants_name">Applicant's Name</label>
+                            <input type="text" id="en_applicants_name" value="{{old('en_applicants_name')}}" class="form-control" placeholder="" name="en_applicants_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_fathers_name">Father's name</label>
-                            <input type="text" id="bn_fathers_name" value="{{old('bn_fathers_name')}}" class="form-control" placeholder="" name="bn_fathers_name">
+                            <label for="en_fathers_name">Father's name</label>
+                            <input type="text" id="en_fathers_name" value="{{old('en_fathers_name')}}" class="form-control" placeholder="" name="en_fathers_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_mothers_name">Mather's Name</label>
-                            <input type="text" id="bn_mothers_name" value="{{old('bn_mothers_name')}}" class="form-control" placeholder="" name="bn_mothers_name">
+                            <label for="en_mothers_name">Mather's Name</label>
+                            <input type="text" id="en_mothers_name" value="{{old('en_mothers_name')}}" class="form-control" placeholder="" name="en_mothers_name">
                         </div>
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <h6 class="">স্থায়ী ঠিকানা </h6>
+                    <h6 class="">Permanent Address </h6>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_district_id">জেলা</label>
-                            <select onchange="show_upazila(this.value)" name="bn_parm_district_id" class="choices form-control js-example-basic-single" id="bn_parm_district_id">
-                                <option value="">নির্বাচন করুন</option>
+                            <label for="en_parm_district_id">District</label>
+                            <select onchange="show_upazila(this.value)" name="en_parm_district_id" class="choices form-control js-example-basic-single" id="en_parm_district_id">
+                                <option value="">select</option>
                                 @forelse($districts as $d)
-                                <option value="{{$d->id}}" {{ old('bn_parm_district_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option value="{{$d->id}}" {{ old('en_parm_district_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                 @empty
                                     <option value="">No Country found</option>
                                 @endforelse
@@ -507,11 +507,11 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_upazila_id">উপজেলা</label>
-                            <select onchange="show_unions(this.value)" name="bn_parm_upazila_id" class=" form-control js-example-basic-single" id="bn_parm_upazila_id">
-                                <option value="">নির্বাচন করুন</option>
+                            <label for="en_parm_upazila_id">Upazila</label>
+                            <select onchange="show_unions(this.value)" name="en_parm_upazila_id" class=" form-control js-example-basic-single" id="en_parm_upazila_id">
+                                <option value="">select</option>
                                 @forelse($upazila as $d)
-                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('bn_parm_upazila_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('en_parm_upazila_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -520,11 +520,11 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_union_id">ইউনিয়ন</label>
-                            <select name="bn_parm_union_id" class=" form-control" id="bn_parm_union_id">
-                                <option value="">নির্বাচন করুন</option>
+                            <label for="en_parm_union_id">Union</label>
+                            <select name="en_parm_union_id" class=" form-control" id="en_parm_union_id">
+                                <option value="">select</option>
                                 @forelse($union as $u)
-                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('bn_parm_union_id')==$u->id?"selected":""}}> {{ $u->name_bn}}</option>
+                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('en_parm_union_id')==$u->id?"selected":""}}> {{ $u->name_bn}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -533,11 +533,11 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_ward_id">ওয়ার্ড নং</label>
-                            <select name="bn_parm_ward_id" class=" form-control js-example-basic-single" id="bn_parm_ward_id">
-                                <option value="">নির্বাচন করুন</option>
+                            <label for="en_parm_ward_id">Ward no</label>
+                            <select name="en_parm_ward_id" class=" form-control js-example-basic-single" id="en_parm_ward_id">
+                                <option value="">select</option>
                                 @forelse($ward as $d)
-                                <option value="{{$d->id}}" {{ old('bn_ward_name')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option value="{{$d->id}}" {{ old('en_ward_name')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -546,26 +546,26 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_holding_name">হোল্ডিং নং</label>
-                            <input type="text" id="bn_parm_holding_name" value="{{old('bn_parm_holding_name')}}" class="form-control" placeholder="হোল্ডিং নং" name="bn_parm_holding_name">
+                            <label for="en_parm_holding_name">Holding no</label>
+                            <input type="text" id="en_parm_holding_name" value="{{old('en_parm_holding_name')}}" class="form-control" placeholder="হোল্ডিং নং" name="en_parm_holding_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_village_name">গ্রামের নাম</label>
-                            <input type="text" id="bn_parm_village_name" value="{{old('bn_parm_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_parm_village_name">
+                            <label for="en_parm_village_name">village Name</label>
+                            <input type="text" id="en_parm_village_name" value="{{old('en_parm_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="en_parm_village_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_post_ofc">পোঃ</label>
-                            <input type="text" id="bn_parm_post_ofc" value="{{old('bn_parm_post_ofc')}}" class="form-control" placeholder="পোঃ" name="bn_parm_post_ofc">
+                            <label for="en_parm_post_ofc">Po:</label>
+                            <input type="text" id="en_parm_post_ofc" value="{{old('en_parm_post_ofc')}}" class="form-control" placeholder="পোঃ" name="en_parm_post_ofc">
                         </div>
                     </div>
                     {{--  <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_pre_thana_id">থানা</label>
-                            <select name="bn_pre_thana_id" class="form-control js-example-basic-single" id="bn_pre_thana_id">
+                            <label for="en_pre_thana_id">থানা</label>
+                            <select name="en_pre_thana_id" class="form-control js-example-basic-single" id="en_pre_thana_id">
                                 <option value="">Select Thana</option>
                                 <option value="1">Panchlaish</option>
                                 <option value="2">Halishahar</option>
@@ -574,30 +574,30 @@
                     </div>  --}}
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_phone_my">মোবাইল নং নিজ</label>
-                            <input type="text" id="bn_parm_phone_my" value="{{old('bn_parm_phone_my')}}" class="form-control" placeholder="মোবাইল নং নিজ" name="bn_parm_phone_my">
+                            <label for="en_parm_phone_my">Mobile no</label>
+                            <input type="text" id="en_parm_phone_my" value="{{old('en_parm_phone_my')}}" class="form-control" placeholder="মোবাইল নং নিজ" name="en_parm_phone_my">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_parm_phone_alt">মোবাইল নং বিকল্প</label>
-                            <input type="text" id="bn_parm_phone_alt" value="{{old('bn_parm_phone_alt')}}" class="form-control" placeholder="মোবাইল নং বিকল্প" name="bn_parm_phone_alt">
+                            <label for="en_parm_phone_alt">Mobile No. Alter</label>
+                            <input type="text" id="en_parm_phone_alt" value="{{old('en_parm_phone_alt')}}" class="form-control" placeholder="মোবাইল নং বিকল্প" name="en_parm_phone_alt">
                         </div>
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <h6 class="">বর্তমান ঠিকানা </h6>
-                    <p>যদি স্থায়ী ও বর্তমান ঠিকানা একই হলে চেক দিন<input class="ms-2" type="checkbox" id="copyCheckbox" onclick="copyAddress();"></p>
+                    <h6 class="">Prensent Address </h6>
+                    <p>Check if permanent and current address are same<input class="ms-2" type="checkbox" id="copyCheckbox" onclick="copyAddress();"></p>
 
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_pre_district_id">জেলা</label>
-                            <select onchange="show_upazila(this.value)" name="bn_pre_district_id" class=" form-control js-example-basic-single" id="bn_pre_district_id">
+                            <label for="en_pre_district_id">District</label>
+                            <select onchange="show_upazila(this.value)" name="en_pre_district_id" class=" form-control js-example-basic-single" id="en_pre_district_id">
                                 <option value="">Select Discrict</option>
                                 @forelse($districts as $d)
-                                <option value="{{$d->id}}" {{ old('bn_pre_district_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option value="{{$d->id}}" {{ old('en_pre_district_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                 @empty
                                     <option value="">No Country found</option>
                                 @endforelse
@@ -606,11 +606,11 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_pre_upazila_id">উপজেলা</label>
-                            <select onchange="show_unions(this.value)" name="bn_pre_upazila_id" class="form-control js-example-basic-single" id="bn_pre_upazila_id">
+                            <label for="en_pre_upazila_id">Upazila</label>
+                            <select onchange="show_unions(this.value)" name="en_pre_upazila_id" class="form-control js-example-basic-single" id="en_pre_upazila_id">
                                 <option value="">Select Upazila</option>
                                 @forelse($upazila as $d)
-                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('bn_pre_upazila_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('en_pre_upazila_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -619,11 +619,11 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_pre_union_id">ইউনিয়ন</label>
-                            <select name="bn_pre_union_id" class="form-control js-example-basic-single" id="bn_pre_union_id">
+                            <label for="en_pre_union_id">Union</label>
+                            <select name="en_pre_union_id" class="form-control js-example-basic-single" id="en_pre_union_id">
                                 <option value="">Select Union</option>
                                 @forelse($union as $u)
-                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('bn_pre_union_id')==$u->id?"selected":""}}> {{ $u->name_bn}}</option>
+                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('en_pre_union_id')==$u->id?"selected":""}}> {{ $u->name_bn}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -632,11 +632,11 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_pre_ward_no">ওয়ার্ড নং</label>
-                            <select name="bn_pre_ward_no" class=" form-control" id="bn_pre_ward_no">
-                                <option value="">নির্বাচন করুন</option>
+                            <label for="en_pre_ward_no">Ward no</label>
+                            <select name="en_pre_ward_id" class=" form-control" id="en_pre_ward_no">
+                                <option value="">Select</option>
                                 @forelse($ward as $d)
-                                <option value="{{$d->id}}" {{ old('bn_pre_ward_no')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option value="{{$d->id}}" {{ old('en_pre_ward_no')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -645,26 +645,26 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_pre_holding_no">হোল্ডিং নং</label>
-                            <input type="text" id="bn_pre_holding_no" value="{{old('bn_pre_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="bn_pre_holding_no">
+                            <label for="en_pre_holding_no">Holding no</label>
+                            <input type="text" id="en_pre_holding_no" value="{{old('en_pre_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="en_pre_holding_no">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_pre_village_name">গ্রামের নাম</label>
-                            <input type="text" id="bn_pre_village_name" value="{{old('bn_pre_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_pre_village_name">
+                            <label for="en_pre_village_name">village name</label>
+                            <input type="text" id="en_pre_village_name" value="{{old('en_pre_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="en_pre_village_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_pre_post_ofc">পোঃ</label>
-                            <input type="text" id="bn_pre_post_ofc" value="{{old('bn_pre_post_ofc')}}" class="form-control" placeholder="পোঃ" name="bn_pre_post_ofc">
+                            <label for="en_pre_post_ofc">Po:</label>
+                            <input type="text" id="en_pre_post_ofc" value="{{old('en_pre_post_ofc')}}" class="form-control" placeholder="পোঃ" name="en_pre_post_ofc">
                         </div>
                     </div>
                     {{--  <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">থানা</label>
-                            <select name="bn_prem_thana_id" class="form-control js-example-basic-single" id="bn_prem_thana_id">
+                            <label for="en_applicants_name">থানা</label>
+                            <select name="en_prem_thana_id" class="form-control js-example-basic-single" id="en_prem_thana_id">
                                 <option value="">Select Thana</option>
                                 <option value="1">Panchlaish</option>
                                 <option value="2">Halishahar</option>
@@ -675,23 +675,23 @@
                 <div class="row">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_identification_mark">সনাক্তহকরণ চিহ্ন</label>
-                            <input type="text" id="bn_identification_mark" value="{{old('bn_identification_mark')}}" class="form-control" placeholder="" name="bn_identification_mark">
+                            <label for="en_identification_mark">Identification mark</label>
+                            <input type="text" id="en_identification_mark" value="{{old('en_identification_mark')}}" class="form-control" placeholder="" name="en_identification_mark">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_edu_qualification">শিক্ষাগতা যোগ্যতা</label>
-                            <input type="text" id="bn_edu_qualification" value="{{old('bn_edu_qualification')}}" class="form-control" placeholder="" name="bn_edu_qualification">
+                            <label for="en_edu_qualification">Educational qualification</label>
+                            <input type="text" id="en_edu_qualification" value="{{old('en_edu_qualification')}}" class="form-control" placeholder="" name="en_edu_qualification">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_blood_id">রক্তের গ্রুপ</label>
-                            <select name="bn_blood_id" class="form-control js-example-basic-single" id="bn_blood_id">
-                                <option value="" selected>নির্বাচন করুন</option>
+                            <label for="en_blood_id">Blood Group</label>
+                            <select name="en_blood_id" class="form-control js-example-basic-single" id="en_blood_id">
+                                <option value="" selected>Select</option>
                                 @forelse($bloods as $b)
-                                <option value="{{$b->id}}" {{ old('bn_blood_id')==$b->id?"selected":""}}> {{ $b->name_bn}}</option>
+                                <option value="{{$b->id}}" {{ old('en_blood_id')==$b->id?"selected":""}}> {{ $b->name_bn}}</option>
                                 @empty
                                     <option value="">No Blood found</option>
                                 @endforelse
@@ -700,41 +700,41 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_dob">জন্ম তারিখ</label>
-                            <input type="date" id="bn_dob" value="{{old('bn_dob')}}" class="form-control" placeholder="" name="bn_dob">
+                            <label for="en_dob">Date of Birth</label>
+                            <input type="date" id="en_dob" value="{{old('en_dob')}}" class="form-control" placeholder="" name="en_dob">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_age">বয়স</label>
-                            <input readonly type="text" id="bn_age" value="{{old('bn_age')}}" class="form-control" placeholder="" name="bn_age">
+                            <label for="en_age">Age</label>
+                            <input readonly type="text" id="en_age" value="{{old('en_age')}}" class="form-control" placeholder="" name="en_age">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_birth_certificate">জন্ম নিবন্ধন নং</label>
-                            <input type="text" id="bn_birth_certificate" value="{{old('bn_birth_certificate')}}" class="form-control" placeholder="" name="bn_birth_certificate">
+                            <label for="en_birth_certificate">Birth Registration No</label>
+                            <input type="text" id="en_birth_certificate" value="{{old('en_birth_certificate')}}" class="form-control" placeholder="" name="en_birth_certificate">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_nid_no">জাতীয় পরিচয়পত্র নং</label>
-                            <input type="text" id="bn_nid_no" value="{{old('bn_nid_no')}}" class="form-control" placeholder="" name="bn_nid_no">
+                            <label for="en_nid_no">National Identity Card No</label>
+                            <input type="text" id="en_nid_no" value="{{old('en_nid_no')}}" class="form-control" placeholder="" name="en_nid_no">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_nationality">জাতীয়তা</label>
-                            <input type="text" id="bn_nationality" value="{{old('bn_nationality','বাংলাদেশী')}}" class="form-control" placeholder="" name="bn_nationality">
+                            <label for="en_nationality">Nationality</label>
+                            <input type="text" id="en_nationality" value="{{old('en_nationality','Bangladeshi')}}" class="form-control" placeholder="" name="en_nationality">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_religion">ধর্ম</label>
-                            <select name="bn_religion" class="form-control js-example-basic-single" id="bn_religion">
+                            <label for="en_religion">Religion</label>
+                            <select name="en_religion" class="form-control js-example-basic-single" id="en_religion">
                                 <option value="">Select</option>
                                 @forelse($religions as $r)
-                                <option value="{{$r->id}}" {{ old('bn_religion')==$r->id?"selected":""}}> {{ $r->name_bn}}</option>
+                                <option value="{{$r->id}}" {{ old('en_religion')==$r->id?"selected":""}}> {{ $r->name_bn}}</option>
                                 @empty
                                     <option value="">No Blood found</option>
                                 @endforelse
@@ -743,19 +743,19 @@
                     </div>
                     <div class="col-md-2 col-6">
                         <div class="form-group mt-3">
-                            <label for="bn_experience">উচ্চতা</label>
+                            <label for="en_experience">Height</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-12">
                         <div class="form-group">
-                            <label for="bn_height_foot">ফুট</label>
-                            <input type="text" id="bn_height_foot" value="{{old('bn_height_foot')}}" class="form-control" placeholder="" name="bn_height_foot">
+                            <label for="en_height_foot">Foot</label>
+                            <input type="text" id="en_height_foot" value="{{old('en_height_foot')}}" class="form-control" placeholder="" name="en_height_foot">
                         </div>
                     </div>
                     <div class="col-md-3 col-12">
                         <div class="form-group">
-                            <label for="bn_height_inc">ইঞ্চি</label>
-                            <input type="text" id="bn_height_inc" value="{{old('bn_height_inc')}}" class="form-control" placeholder="" name="bn_height_inc">
+                            <label for="en_height_inc">Inch</label>
+                            <input type="text" id="en_height_inc" value="{{old('en_height_inc')}}" class="form-control" placeholder="" name="en_height_inc">
                         </div>
                     </div>
                     <div class="col-md-3 col-6">
@@ -764,54 +764,54 @@
                     </div>
                     <div class="col-md-2 col-6">
                         <div class="form-group mt-3">
-                            <label for="bn_experience">ওজন</label>
+                            <label for="en_experience">weight</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-12">
                         <div class="form-group">
-                            <label for="bn_weight_kg">কেজি</label>
-                            <input type="text" id="bn_weight_kg" value="{{old('bn_weight_kg')}}" class="form-control" placeholder="" name="bn_weight_kg">
+                            <label for="en_weight_kg">Kg</label>
+                            <input type="text" id="en_weight_kg" value="{{old('en_weight_kg')}}" class="form-control" placeholder="" name="en_weight_kg">
                         </div>
                     </div>
                     <div class="col-md-3 col-12">
                         <div class="form-group">
-                            <label for="bn_weight_pounds">পাউন্ড</label>
-                            <input type="text" id="bn_weight_pounds" value="{{old('bn_weight_pounds')}}" class="form-control" placeholder="" name="bn_weight_pounds">
+                            <label for="en_weight_pounds">Pound</label>
+                            <input type="text" id="en_weight_pounds" value="{{old('en_weight_pounds')}}" class="form-control" placeholder="" name="en_weight_pounds">
                         </div>
                     </div>
                     <div class="col-md-3 col-12">
                         <div class="form-group">
-                            <label for="bn_experience">অভিজ্ঞতা</label>
-                            <input type="text" id="bn_experience" value="{{old('bn_experience')}}" class="form-control" placeholder="" name="bn_experience">
+                            <label for="en_experience">Experience</label>
+                            <input type="text" id="en_experience" value="{{old('en_experience')}}" class="form-control" placeholder="" name="en_experience">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_marital_status">বৈবাহিক অবস্থা</label>
-                            <select name="bn_marital_status" class="form-control js-example-basic-single" onclick="getMarriedInfo()" id="bn_marital_status">
-                                <option value="1">অবিবাহিত</option>
-                                <option value="2">বিবাহিত</option>
+                            <label for="en_marital_status">Marital Status</label>
+                            <select name="en_marital_status" class="form-control js-example-basic-single" onclick="getMarriedInfo()" id="en_marital_status">
+                                <option value="1">Unmarried</option>
+                                <option value="2">Married</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3 col-12 d-none bn_spouse_name1" id="bn_spouse_name1">
+                    <div class="col-md-3 col-12 d-none en_spouse_name1" id="en_spouse_name1">
                         <div class="form-group">
-                            <label for="bn_spouse_name">স্বামী/স্ত্রীর নাম</label>
-                            <input type="text" id="bn_spouse_name" value="{{old('bn_spouse_name')}}" class="form-control" placeholder="" name="bn_spouse_name[]">
+                            <label for="en_spouse_name">Spouse Name</label>
+                            <input type="text" id="en_spouse_name" value="{{old('en_spouse_name')}}" class="form-control" placeholder="" name="en_spouse_name[]">
                         </div>
                     </div>
                 </div>
                 <div class="row Repeter d-none children_data" id="children_data">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_song_name">ছেলের নাম</label>
-                            <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name[]">
+                            <label for="en_song_name">Son's name</label>
+                            <input type="text" id="en_song_name" value="{{old('en_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="en_song_name[]">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_daughters_name">মেয়ের নাম</label>
-                            <input type="text" id="bn_daughters_name" value="{{old('bn_daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="bn_daughters_name[]">
+                            <label for="en_daughters_name">Girl's name</label>
+                            <input type="text" id="en_daughters_name" value="{{old('en_daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="en_daughters_name[]">
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 ps-0">
@@ -824,294 +824,42 @@
                 <div class="row">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_legacy_name">উত্তরাধীকারী এর নাম</label>
-                            <input type="text" id="bn_legacy_name" value="{{old('bn_legacy_name')}}" class="form-control" placeholder="উত্তরাধীকারী এর নাম" name="bn_legacy_name">
+                            <label for="en_legacy_name">Name of Successor</label>
+                            <input type="text" id="en_legacy_name" value="{{old('en_legacy_name')}}" class="form-control" placeholder="উত্তরাধীকারী এর নাম" name="en_legacy_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_legacy_relation">সম্পর্ক</label>
-                            <input type="text" id="bn_legacy_relation" value="{{old('bn_legacy_relation')}}" class="form-control" placeholder="সম্পর্ক" name="bn_legacy_relation">
+                            <label for="en_legacy_relation">Relationship</label>
+                            <input type="text" id="en_legacy_relation" value="{{old('en_legacy_relation')}}" class="form-control" placeholder="সম্পর্ক" name="en_legacy_relation">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_reference_admittee">ভর্তিকারীর সুপারিশ/রেফারেন্স নাম</label>
-                            <input type="text" id="bn_reference_admittee" value="{{old('bn_reference_admittee')}}" class="form-control" placeholder="ভর্তিকারীর সুপারিশ/রেফারেন্স নাম" name="bn_reference_admittee">
+                            <label for="en_reference_admittee">NAME OF RECOMMENDATION/REFERENCE OF ADMITTEE</label>
+                            <input type="text" id="en_reference_admittee" value="{{old('en_reference_admittee')}}" class="form-control" placeholder="ভর্তিকারীর সুপারিশ/রেফারেন্স নাম" name="en_reference_admittee">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_reference_adm_phone">মোবাইল</label>
-                            <input type="text" id="bn_reference_adm_phone" value="{{old('bn_reference_adm_phone')}}" class="form-control" placeholder="মোবাইল" name="bn_reference_adm_phone">
+                            <label for="en_reference_adm_phone">Mobile</label>
+                            <input type="text" id="en_reference_adm_phone" value="{{old('en_reference_adm_phone')}}" class="form-control" placeholder="মোবাইল" name="en_reference_adm_phone">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_reference_adm_adress">ঠিকানা</label>
-                            <input type="text" id="bn_reference_adm_adress" value="{{old('bn_reference_adm_adress')}}" class="form-control" placeholder="ঠিকানা" name="bn_reference_adm_adress">
+                            <label for="en_reference_adm_adress">Address</label>
+                            <input type="text" id="en_reference_adm_adress" value="{{old('en_reference_adm_adress')}}" class="form-control" placeholder="ঠিকানা" name="en_reference_adm_adress">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applied_position">আবেদিত পদ</label>
-                            <input type="text" id="bn_applied_position" value="{{old('bn_applied_position')}}" class="form-control" placeholder="আবেদিত পদ" name="bn_applied_position">
+                            <label for="en_applied_position">Position applied for</label>
+                            <input type="text" id="en_applied_position" value="{{old('en_applied_position')}}" class="form-control" placeholder="আবেদিত পদ" name="en_applied_position">
                         </div>
                     </div>
                 </div>
 
-
-
-                <div class="row">
-                    <h6 class="border-bottom my-5">English</h6>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_applicants_name">Applicant Name</label>
-                            <input type="text" id="en_applicants_name" value="{{old('en_applicants_name')}}" class="form-control" placeholder="" name="en_applicants_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_fathers_name">Father's Name</label>
-                            <input type="text" id="en_fathers_name" value="{{old('en_fathers_name')}}" class="form-control" placeholder="" name="en_fathers_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_mothers_name">Mother's Name</label>
-                            <input type="text" id="en_mothers_name" value="{{old('en_mothers_name')}}" class="form-control" placeholder="" name="en_mothers_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_husband_name">Husband Name</label>
-                            <input type="text" id="en_husband_name" value="{{old('en_husband_name')}}" class="form-control" placeholder="" name="en_husband_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_spouse_name">bn_spouse_name</label>
-                            <input type="text" id="en_spouse_name" value="{{old('en_spouse_name')}}" class="form-control" placeholder="" name="en_spouse_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_son_name">Son Name</label>
-                            <input type="text" id="en_son_name" value="{{old('en_son_name')}}" class="form-control" placeholder="" name="en_son_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_daughter_name">Daughter Name</label>
-                            <input type="text" id="en_daughter_name" value="{{old('en_daughter_name')}}" class="form-control" placeholder="" name="en_daughter_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_applicant_contact">Mobile No</label>
-                            <input type="text" id="en_applicant_contact" value="{{old('en_applicant_contact')}}" class="form-control" placeholder="" name="en_applicant_contact">
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3 gx-1">
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="">Permanent Address</label>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-6 col-12">
-                                    <input type="text" id="en_pre_holding_no" value="{{old('en_pre_holding_no')}}" class="form-control" placeholder="Holding No" name="en_pre_holding_no">
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <input type="text" id="en_pre_word_no" value="{{old('en_pre_word_no')}}" class="form-control" placeholder="Ward No" name="en_pre_word_no">
-                                </div>
-                            </div>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-6 col-12">
-                                    <select name="en_pre_post_ofc_id" class="form-control js-example-basic-single" id="en_pre_post_ofc_id">
-                                        <option value="">Select Post Office</option>
-                                        <option value="1">Panchlaish</option>
-                                        <option value="2">Halishahar</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <select name="en_pre_thana_id" class="form-control js-example-basic-single" id="en_pre_thana_id">
-                                        <option value="">Select Thana</option>
-                                        <option value="1">Panchlaish</option>
-                                        <option value="2">Halishahar</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-6 col-12">
-                                    <input type="text" id="en_pre_village_name" value="{{old('en_pre_village_name')}}" class="form-control" placeholder="Village Name" name="en_pre_village_name">
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <select name="en_pre_union_id" class="form-control js-example-basic-single" id="en_pre_union_id">
-                                        <option value="">Select Union</option>
-                                        <option value="1">Banskhali</option>
-                                        <option value="2">Boalkhali</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-6 col-12">
-                                    <select name="en_pre_upazila_id" class="form-control js-example-basic-single" id="en_pre_upazila_id">
-                                        <option value="">Select Upazila</option>
-                                        <option value="1">Fatikchori</option>
-                                        <option value="2">Boalkhali</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <select name="en_pre_district_id" class="form-control js-example-basic-single" id="en_pre_district_id">
-                                        <option value="">Select Discrict</option>
-                                        <option value="1">Chittagong</option>
-                                        <option value="2">Dhaka</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="">Present Address</label>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-6 col-12">
-                                    <input type="text" id="en_prem_holding_no" value="{{old('en_prem_holding_no')}}" class="form-control" placeholder="Holding No" name="en_prem_holding_no">
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <input type="text" id="en_prem_road_no" value="{{old('en_prem_road_no')}}" class="form-control" placeholder="Road No" name="en_prem_road_no">
-                                </div>
-                            </div>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-6 col-12">
-                                    <input type="text" id="en_prem_building_name" value="{{old('en_prem_building_name')}}" class="form-control" placeholder="Building Name" name="en_prem_building_name">
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <select name="en_prem_district_id" class="form-control js-example-basic-single" id="en_prem_district_id">
-                                        <option value="">Select Discrict</option>
-                                        <option value="1">Chittagong</option>
-                                        <option value="2">Dhaka</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-12 col-12">
-                                    <select name="en_prem_thana_id" class="form-control js-example-basic-single" id="en_prem_thana_id">
-                                        <option value="">Select Thana</option>
-                                        <option value="1">Panchlaish</option>
-                                        <option value="2">Halishahar</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="en_reference_name">Reference Name</label>
-                            <input type="text" id="en_reference_name" value="{{old('en_reference_name')}}" class="form-control" placeholder="" name="en_reference_name">
-
-                            <label for="en_ref_address">Reference Address</label>
-                            <input type="text" id="en_ref_address" value="{{old('en_ref_address')}}" class="form-control" placeholder="" name="en_ref_address">
-
-                            <label for="en_ref_mobile">Reference Mobile</label>
-                            <input type="text" id="en_ref_mobile" value="{{old('en_ref_mobile')}}" class="form-control" placeholder="" name="en_ref_mobile">
-                            <div class="row gx-1">
-                                <div class="col-md-6 col-12">
-                                    <label for="en_religion">Religion</label>
-                                    <select name="en_religion" class="form-control js-example-basic-single" id="en_religion">
-                                        <option value="">Select</option>
-                                        <option value="1">Muslim</option>
-                                        <option value="2">Hindu</option>
-                                        <option value="3">Buddhist</option>
-                                        <option value="4">Christian</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="en_ident_mark">Identification Mark</label>
-                                        <input type="text" id="en_ident_mark" value="{{old('en_ident_mark')}}" class="form-control" placeholder="" name="en_ident_mark">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <label for="en_height">Height</label>
-                                    <input type="text" id="en_height" value="{{old('en_height')}}" class="form-control" placeholder="" name="en_height">
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <label for="en_weight">Weight</label>
-                                    <input type="text" id="en_weight" value="{{old('en_weight')}}" class="form-control" placeholder="" name="en_weight">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row my-2 gx-1">
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                                <label for="en_edu_qualification">Education Qualification</label>
-                                <input type="text" id="en_edu_qualification" value="{{old('en_edu_qualification')}}" class="form-control" placeholder="" name="en_edu_qualification">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                                <label for="en_experience">Experience</label>
-                                <input type="text" id="en_experience" value="{{old('en_experience')}}" class="form-control" placeholder="" name="en_experience">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                                <label for="dob">DOB</label>
-                                <input type="date" id="dob" value="{{old('dob')}}" class="form-control" placeholder="" name="dob">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                                <label for="en_birth_cert">Birth Certificate</label>
-                                <input type="text" id="en_birth_cert" value="{{old('en_birth_cert')}}" class="form-control" placeholder="" name="en_birth_cert">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                                <label for="en_nationality">Nationality</label>
-                                <input type="text" id="en_nationality" value="{{old('en_nationality')}}" class="form-control" placeholder="" name="en_nationality">
-
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                                <label for="en_nid">Nid</label>
-                                <input type="text" id="en_nid" value="{{old('en_nid')}}" class="form-control" placeholder="" name="en_nid">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                                <label for="marital_status">Maritial Status</label>
-                                <select id="marital_status" class="form-control" name="marital_status">
-                                    <option value="">Select</option>
-                                    <option value="1">Married</option>
-                                    <option value="2">Unmarried</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                                <label for="en_applied_position">Position Applied For</label>
-                                <input type="text" id="en_applied_position" value="{{old('en_applied_position')}}" class="form-control" placeholder="" name="en_applied_position">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-12 mt-3">
-                        <div class="form-group">
-                            <label for="en_next_of_kin">Next Of Kin</label>
-                            <input type="text" id="en_next_of_kin" value="{{old('en_next_of_kin')}}" class="form-control" placeholder="" name="en_next_of_kin">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-12 mt-3">
-                        <div class="form-group">
-                            <label for="en_relation_with_applicant">Relationship With Applicant</label>
-                            <input type="text" id="en_relation_with_applicant" value="{{old('en_relation_with_applicant')}}" class="form-control" placeholder="" name="en_relation_with_applicant">
-                        </div>
-                    </div>
-                </div>
                 <div class="row d-flex justify-content-end">
                     <div class="col-12 col-md-3">
                         <div class="card">
