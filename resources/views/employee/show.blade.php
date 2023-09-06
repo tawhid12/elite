@@ -1,212 +1,201 @@
 @extends('layout.app')
-@section('pageTitle','Employee Show')
-@section('pageSubTitle','View')
-@push('styles')
-<style>
-th,td{
-    padding:2px !important;
-    border: 1px solid #d6d6d6 !important;
-}
-.bg{
-    background-color: #f8f8f8 !important; 
-}
-.bg-danger-subtle {
-    border: 1px solid #d6d6d6;
-    font-size: 14px;
-    text-align: center;
-    height: 30px;
-}
-</style>
-@endpush
 @section('content')
-<!-- Bordered table start -->
-<section class="section">
-    <div class="row" id="table-bordered">
-        <div class="col-12">
-            <div class="card">
-                <!-- table bordered -->
-                <div class="row p-3">
-                    <div class="col-md-8 offset-md-2">
-
-                    <table class="table table-sm table-bordered text-center" style="font-size: smaill;">
-                        <thead>
-                            <tr>
-                                <th colspan="4" scope="col">
-                                    {{$e->bn_applicants_name}} - Details
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th class="bg" scope="row">Fathers</th>
-                                <td>{{$v->stock_id}}</td>
-                                <th class="bg" scope="row">Engine Size (CC)</th>
-                                <td>{{$v->e_size}}</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Maker</th>
-                                <td>{{ optional($v->brand)->name }}</td>
-                                <th class="bg" scope="row">Engine Info</th>
-                                <td>{{$v->e_info}}</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Model</th>
-                                <td>{{ optional($v->sub_brand)->name }}</td>
-                                <th class="bg" scope="row">Engine Code</th>
-                                <td>{{$v->e_code}}</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Package</th>
-                                <td>{{ $v->package }}</td>
-                                <th class="bg" scope="row">Location</th>
-                                <td>{{ optional($v->inv_loc)->name }} | {{ optional($v->inv_port)->name }}</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Chassis</th>
-                                <td>{{ $v->chassis_no }}</td>
-                                <th class="bg" scope="row">Drive</th>
-                                <td>{{ optional($v->drive_type)->name }}</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Manufacture Year</th>
-                                <td>{{$v->manu_year}}</td>
-                                <th class="bg" scope="row">Registration Year</th>
-                                <td>
-                                    @if($v->reg_year)
-                                    {{\Carbon\Carbon::createFromTimestamp(strtotime($v->reg_year))->format('Y')}}
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Mileage (KM)</th>
-                                <td>{{ $v->mileage }}</td>
-                                <th class="bg" scope="row">Transmission</th>
-                                <td>{{ optional($v->trans)->name }}</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Ext. Color</th>
-                                <td>{{ optional($v->ext_color)->name }}</td>
-                                <th class="bg" scope="row">Steering</th>
-                                <td>@if($v->steering == 1) RHD @else LHD @endif</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Door</th>
-                                <td>{{ optional($v->door)->name }}</td>
-                                <th class="bg" scope="row">Weight</th>
-                                <td>{{ $v->weight }}</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Seats</th>
-                                <td>{{ optional($v->seat)->name }}</td>
-                                <th class="bg" scope="row">Capacity</th>
-                                <td>{{ $v->max_loading_capacity }}</td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Body Type</th>
-                                <td>{{ optional($v->body_type)->name }}</td>
-                                <th class="bg" scope="row">Dimention (L*H*W)</th>
-                                <td>
-                                @if($v->b_length && $v->b_height && $v->b_width)
-                                {{ $v->b_length }} x {{ $v->b_height }} x {{ $v->b_width }}
-                                @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="bg" scope="row">Fuel Type</th>
-                                <td>{{ optional($v->fuel)->name }}</td>
-                                <th class="bg" scope="row">M3</th>
-                                <td>{{ $v->m3 }}</td>
-                            </tr>
-                            <tr>
-                                {{--<th class="bg" scope="row">Int. Color</th>
-                                <td>{{ optional($v->int_color)->name }}</td>--}}
-                                <th class="bg" scope="row">Condition</th>
-                                <td>{{ optional($v->condition)->name }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    
-           
-                  <!--Accessories  -->
-                  <div class="mt-2">
-                    <table class="m-0 table table-sm">
-                      <thead>
-                        <tr class="">
-                          <th class="text-center" colspan="4" scope="col">
-                            Features
-                          </th>
-                        </tr>
-                      </thead>
-                    </table>
-                    <div class="row gx-0">
-                
-                        @if($v->cd_player ==1) <div class="col-md-3 bg-danger-subtle">CD Player</div> @endif
-                        @if($v->sun_roof ==1) <div class="col-md-3 bg-danger-subtle">Sun Roof</div> @endif
-                        @if($v->leather_seat ==1)<div class="col-md-3 bg-danger-subtle">Leather Seat</div>@endif
-                        @if($v->alloy_wheels ==1)<div class="col-md-3 bg-danger-subtle">Alloy Wheels</div> @endif
-                      
-                        @if($v->power_steering ==1)<div class="col-md-3 bg-danger-subtle">Power Steering</div> @endif
-                        @if($v->power_windows ==1)<div class="col-md-3 bg-danger-subtle">Power Windows</div> @endif
-                        @if($v->air_con ==1)<div class="col-md-3 bg-danger-subtle">Air Con</div> @endif
-                        @if($v->anti_lock_brake_system ==1)<div class="col-md-3 bg-danger-subtle">Anti lock Brake System</div> @endif
-                     
-                        @if($v->air_bag ==1)<div class="col-md-3 bg-danger-subtle">Air Bag</div> @endif
-                        @if($v->radio ==1)<div class="col-md-3 bg-danger-subtle">Radio</div> @endif
-                        @if($v->cd_changer ==1)<div class="col-md-3 bg-danger-subtle">Cd Changer</div> @endif
-                        @if($v->dvd ==1)<div class="col-md-3 bg-danger-subtle">DVD</div>@endif
-                     
-                        @if($v->tv ==1)<div class="bg-danger-subtle">TV</div> @endif
-                        @if($v->power_seat ==1)<div class="bg-danger-subtle">Power Seat</div> @endif
-                        @if($v->back_tire ==1)<div class="bg-danger-subtle">Back Tire @endif
-                          @if($v->grill_guard ==1)
-                        <div class="bg-danger-subtle">Grill Guard</div> @endif
-                     
-                        @if($v->rear_spoiler ==1)<div class="bg-danger-subtle">Rear Spoiler</div> @endif
-                        @if($v->central_locking ==1)<div class="bg-danger-subtle">Central Locking</div> @endif
-                        @if($v->jack ==1)<div>Jack</div class="bg-danger-subtle"> @endif
-                        @if($v->spare_tire ==1)<div class="bg-danger-subtle">Spare Tire</div> @endif
-                      
-                        @if($v->wheel_spanner ==1)<div class="bg-danger-subtle">Wheel Spanner</div> @endif
-                        @if($v->fog_lights ==1)<div class="bg-danger-subtle">Fog Lights</div> @endif
-                        @if($v->back_camera ==1)<div class="bg-danger-subtle">Back Camera</div> @endif
-                        @if($v->push_start ==1)<div class="bg-danger-subtle">Push Start</div> @endif
-                      
-                        @if($v->keyless_entry ==1)<div>Keyless Entry</div> @endif
-                        @if($v->esc ==1)<div>ESC</div> @endif
-                        @if($v->deg_360_cam ==1)<div>360 Degree Camera</div> @endif
-                        @if($v->body_kit ==1)<div>Body Kit</div> @endif
-                    
-                        @if($v->side_airbag ==1)<div class="bg-danger-subtle">Side Airbag</div>@endif
-                        @if($v->power_mirror ==1)<div class="bg-danger-subtle">Power Mirror</div> @endif
-                        @if($v->side_skirts ==1)<div class="bg-danger-subtle">Side Skirts</div> @endif
-                        @if($v->front_lip_spoiler ==1)<div class="bg-danger-subtle">Front Lip Spoiler</div> @endif
-                      
-                        @if($v->navigation ==1)<div class="bg-danger-subtle">Navigation</div> @endif
-                        @if($v->turbo ==1)<div class="bg-danger-subtle">Turbo</div> @endif
-                     
-               
-
-                  </div>
-                
-                <div class="col-md-12">
-                    <h6>Vehicle Images</h6>
-                    <div class="row gx-1">
-                        @forelse($v_images as $v_img)
-                        <div class="col-md-2 mt-1">
-                            <img class="img-fluid" src="{{asset('uploads/vehicle_images/'.$v_img->image)}}" alt="Card image cap">
-                        </div>
-                        @empty
-                        @endforelse
+<div>
+    <a href="#" class="btn btn-info no-print"> Go To Dashboard</a>
+    <button type="button" class="btn btn-info no-print" onclick="printDiv('result_show')">Print</button>
+</div>
+<section id="result_show">
+    <style>
+        .tinput {
+            width: 100%;
+            outline: 0;
+            border-style: dashed;
+            border-width: 0 0 1px;
+            border-color: blue;
+            background-color: transparent;
+        }
+    </style>
+    {{--  <section style="margin-top: 40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"
+                    style="margin-top: 10px; margin-bottom: 10px; border-radius: 4px;">
+                    <h5 class="theme-text-color" style="padding-top: 5px;"><strong>এলিট সিকিউরিটি সার্ভিসেস লিমিটেড</strong></h5>
+                </div>
+                <p class="text-center m-0 p-0">ভর্তি ফরম:সকল অস্থায়ী পদের জন্য</p>
+                <p class="text-center m-0 p-0">বাড়ি নং-২,লেইন নং-২,রোড নং-২,ব্লক-’’কে’’</p>
+            </div>
+        </div>
+    </section>  --}}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <img  class="mt-5" height="80px" width="140px" src="{{ asset('assets/images/logo/logo.png')}}" alt="no img">
+                </div>
+                <div class="col-6 col-sm-6" style="padding-left: 10px;">
+                    <div style="text-align: center;">
+                        <h5 style="padding-top: 5px;">এলিট সিকিউরিটি সার্ভিসেস লিমিটেড</h5>
+                        <p class="text-center m-0 p-0">ভর্তি ফরম:সকল অস্থায়ী পদের জন্য</p>
+                        <p class="text-center m-0 p-0">বাড়ি নং-২,লেইন নং-২,রোড নং-২,ব্লক-''কে''</p>
+                        <p class="text-center m-0 p-0">হালিশহর হাউজিং এষ্টেট,চট্টগ্রাম-৪২২৪</p>
+                        <h6 class="text-center m-0 p-0"><u>জীবন বৃত্তান্ত/ব্যক্তিগত বিবরন/তথ্যাদি</u></h6>
                     </div>
                 </div>
+                <div class="col-3" style="padding-left: 10px;">
+                    <img height="150px" width="150px"  src="#" onerror="this.onerror=null;this.src='{{ asset('assets/images/logo/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
+                </div>
             </div>
+            <div class="" style="width:100%; margin:0 auto;">
+                <table class = "gfg" style="width:100%">
+                    <tbody >
+                        <tr>
+                            <td style="text-align: left; width:5%">১ ।</td>
+                            <td style="text-align: left; width:22%">আবেদনকারীর নাম :</td>
+                            <td colspan="2"><input type="text" class="tinput"  value="কামাল"></td>
+                            <td colspan="2" style="text-align: center; width:20%">ভর্তির পর আইডি নং</td>
+                            <td colspan="2"><input type="text" class="tinput"  value="01010101"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; width:5%">২ ।</td>
+                            <td style="text-align: left; width:22%">পিতার নাম:</th>
+                            <td  colspan="2"><input type="text" class="tinput"  value="জামাল"></td>
+                            <td  colspan="2" style="text-align: center;">মাতার নাম:</th>
+                            <td  colspan="2"><input type="text" class="tinput"  value="আছিয়া"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; width:5%">৩ ।</td>
+                            <td style="text-align: left;">স্থায়ী ঠিকানা :</td>
+                            <td style="text-align: left;">হোল্ডিং নং:</td>
+                            <td><input type="text" class="tinput" value="১০১০১০১০১০১৯৯৯৯"></td>
+                            <td style="text-align: left;">ওয়ার্ড:</td>
+                            <td><input type="text" class="tinput" value="৩নং ওয়ার্ড"></td>
+                            <td style="text-align: left;">গ্রাম:</td>
+                            <td><input type="text" class="tinput" value="গামছাখালী"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;"></td>
+                            <td style="text-align: left;"></td>
+                            <td style="text-align: left;">ইউনিয়ন :</td>
+                            <td colspan="2"><input type="text" class="tinput" value="১০১০১০১০১০১৯৯৯৯"></td>
+                            <td style="text-align: left;">পোঃ :</td>
+                            <td colspan="2"><input type="text" class="tinput" value="৩নং ওয়ার্ড"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;"></td>
+                            <td style="text-align: left;"></td>
+                            <td style="text-align: left;">উপজেলা :</td>
+                            <td colspan="2"><input type="text" class="tinput" value="১০১০১০১০১০১৯৯৯৯"></td>
+                            <td style="text-align: left;">জেলা :</td>
+                            <td colspan="2"><input type="text" class="tinput" value="৩নং ওয়ার্ড"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;"></td>
+                            <td style="text-align: left;"></td>
+                            <td style="text-align: left;">মোবাইল নং(নিজ) :</td>
+                            <td colspan="2"><input type="text" class="tinput" value="১০১০১০১০১০১৯৯৯৯"></td>
+                            <td style="text-align: left;">বিকল্প :</td>
+                            <td colspan="2"><input type="text" class="tinput" value="৯৯৮৮৭৭৭৬৬৬৬৬"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; width:5%">৪ ।</td>
+                            <td style="text-align: left;">বর্তমান ঠিকানা :</td>
+                            <td style="text-align: left;">হোল্ডিং নং:</td>
+                            <td><input type="text" class="tinput" value="১০১০১০১০১০১৯৯৯৯"></td>
+                            <td style="text-align: left;">ওয়ার্ড:</td>
+                            <td><input type="text" class="tinput" value="৩নং ওয়ার্ড"></td>
+                            <td style="text-align: left;">গ্রাম:</td>
+                            <td><input type="text" class="tinput" value="গামছাখালী"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;"></td>
+                            <td style="text-align: left;"></td>
+                            <td style="text-align: left;">ইউনিয়ন :</td>
+                            <td colspan="2"><input type="text" class="tinput" value="৬নং চরকিং"></td>
+                            <td style="text-align: left;">পোঃ :</td>
+                            <td colspan="2"><input type="text" class="tinput" value="মফিজিয়া"></td>
+                        </tr>
+                        {{--  <tr>
+                            <td style="text-align: left;">Marital Status:</td>
+                            <td >
+                                <input type="radio"  value=""  name="marital_status">
+                                <label for="">Single</label>
+                                <input type="radio" value="" name="marital_status">
+                                <label for="">Married</label>
+                            </td>
+                            <td style="text-align: left; ">Anniversary:</td>
+                            <td ><input type="text" class="sinput"  value=""></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Spouse Name:</td>
+                            <td ><input type="text" class="sinput"  value=""></td>
+                            <td style="text-align: left; padding-left:5px; ">Profession:</td>
+                            <td ><input type="text" class="sinput"  value=""></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Date of Birth:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                            <td style="text-align: left; padding-left:5px;">Place:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Tel:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                            <td style="text-align: left; padding-left:5px;">Phone:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Email:</td>
+                            <td colspan="3"><input type="text" class="tinput" value=""></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Nationality:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                            <td style="text-align: left; padding-left:5px;">Blood Group:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">National ID No:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                            <td style="text-align: left; padding-left:5px;">Passport No:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Educational Qualification:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                            <td style="text-align: left; padding-left:5px;">Institution Name:</td>
+                            <td ><input type="text" class="tinput" value=""></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">e-TIN No:</td>
+                            <td colspan="3"><input type="text" class="tinput" value=""></td>
+                        </tr>  --}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                {{--  <h5 class="text-center">
+                 অত্র ট্রেড লাইসেন্স এর মেয়াদ ৩০ শে জুন ২০২৪ পর্যন্ত।
 
+                </h5>  --}}
+            </div>
         </div>
-    </div>
-    </div>
-</section>
-<!-- Bordered table end -->
-</div>
+    </section>
 
+</section>
+
+<script>
+    function printDiv(divName) {
+        var prtContent = document.getElementById(divName);
+        var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+        WinPrint.document.write('<link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}" type="text/css"/>');
+        WinPrint.document.write(prtContent.innerHTML);
+        WinPrint.document.close();
+        WinPrint.onload =function(){
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+    }
+</script>
 @endsection

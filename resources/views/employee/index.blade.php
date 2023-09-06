@@ -32,9 +32,9 @@
                             <p><strong>Mothers's Name:</strong> {{$e->en_mothers_name}}</p>
                         </td>
                         <td>
-                            <!-- <a href="{{route('employee.show', ['role' =>currentUser(),'id' => encryptor('encrypt',$e->id)])}}">
+                            <a href="{{route('employee.show',encryptor('encrypt',$e->id))}}">
                                 <i class="bi bi-eye"></i>
-                            </a> -->
+                            </a>
                         </td>
                     </tr>
                     @empty

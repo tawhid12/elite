@@ -175,7 +175,7 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show($role,$id)
+    public function show($id)
     {
         $emp = Employee::findOrFail(encryptor('decrypt', $id));
         return view('employee.show', compact('emp'));
