@@ -61,6 +61,7 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         try {
+            // dd($request->all());
             /*echo '<pre>';
         print_r($request->all());*/
             $employee = new Employee();
@@ -151,6 +152,12 @@ class EmployeeController extends Controller
             $employee->en_reference_adm_phone = $request->en_reference_adm_phone;
             $employee->en_reference_adm_adress = $request->en_reference_adm_adress;
             $employee->en_applied_position = $request->en_applied_position;
+
+            if($request->has('profile_img'))
+            $employee->profile_img=$this->uploadImage($request->profile_img,'uploads/profile_img/');
+            if($request->has('signature_img'))
+            $employee->signature_img=$this->uploadImage($request->signature_img,'uploads/signature_img/');
+
             if ($employee->save()) {
                 return redirect()->route('employee.index', ['role' =>currentUser()])->with(Toastr::success('Data Saved!', 'Success', ["positionClass" => "toast-top-right"]));
             } else {

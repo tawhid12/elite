@@ -42,7 +42,7 @@
                             <div class="card-content">
                                 <div class="card-body p-0">
                                     <!-- Basic file uploader -->
-                                    <input type="file" class="basic-filepond" name="profile_img">
+                                    <input type="file" class="" name="profile_img">
                                 </div>
                             </div>
                         </div>
@@ -403,7 +403,7 @@
                     <div class="col-md-3 col-12 d-none bn_spouse_name1" id="bn_spouse_name1">
                         <div class="form-group">
                             <label for="bn_spouse_name">স্বামী/স্ত্রীর নাম</label>
-                            <input type="text" id="bn_spouse_name" value="{{old('bn_spouse_name')}}" class="form-control" placeholder="" name="bn_spouse_name[]">
+                            {{--  <input type="text" id="bn_spouse_name" value="{{old('bn_spouse_name')}}" class="form-control" placeholder="" name="bn_spouse_name[]">  --}}
                         </div>
                     </div>
                 </div>
@@ -411,13 +411,13 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_song_name">ছেলের নাম</label>
-                            <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name[]">
+                            {{--  <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name[]">  --}}
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_daughters_name">মেয়ের নাম</label>
-                            <input type="text" id="bn_daughters_name" value="{{old('bn_daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="bn_daughters_name[]">
+                            {{--  <input type="text" id="bn_daughters_name" value="{{old('bn_daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="bn_daughters_name[]">  --}}
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 ps-0">
@@ -498,7 +498,7 @@
                             <select onchange="show_upazila(this.value)" name="en_parm_district_id" class="choices form-control js-example-basic-single" id="en_parm_district_id">
                                 <option value="">select</option>
                                 @forelse($districts as $d)
-                                <option value="{{$d->id}}" {{ old('en_parm_district_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option value="{{$d->id}}" {{ old('en_parm_district_id')==$d->id?"selected":""}}> {{ $d->name}}</option>
                                 @empty
                                     <option value="">No Country found</option>
                                 @endforelse
@@ -511,7 +511,7 @@
                             <select onchange="show_unions(this.value)" name="en_parm_upazila_id" class=" form-control js-example-basic-single" id="en_parm_upazila_id">
                                 <option value="">select</option>
                                 @forelse($upazila as $d)
-                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('en_parm_upazila_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('en_parm_upazila_id')==$d->id?"selected":""}}> {{ $d->name}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -524,7 +524,7 @@
                             <select name="en_parm_union_id" class=" form-control" id="en_parm_union_id">
                                 <option value="">select</option>
                                 @forelse($union as $u)
-                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('en_parm_union_id')==$u->id?"selected":""}}> {{ $u->name_bn}}</option>
+                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('en_parm_union_id')==$u->id?"selected":""}}> {{ $u->name}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -537,7 +537,7 @@
                             <select name="en_parm_ward_id" class=" form-control js-example-basic-single" id="en_parm_ward_id">
                                 <option value="">select</option>
                                 @forelse($ward as $d)
-                                <option value="{{$d->id}}" {{ old('en_ward_name')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option value="{{$d->id}}" {{ old('en_ward_name')==$d->id?"selected":""}}> {{ $d->name}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -547,24 +547,24 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_parm_holding_name">Holding no</label>
-                            <input type="text" id="en_parm_holding_name" value="{{old('en_parm_holding_name')}}" class="form-control" placeholder="হোল্ডিং নং" name="en_parm_holding_name">
+                            <input type="text" id="en_parm_holding_name" value="{{old('en_parm_holding_name')}}" class="form-control" placeholder="Holding no" name="en_parm_holding_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_parm_village_name">village Name</label>
-                            <input type="text" id="en_parm_village_name" value="{{old('en_parm_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="en_parm_village_name">
+                            <input type="text" id="en_parm_village_name" value="{{old('en_parm_village_name')}}" class="form-control" placeholder="village Name" name="en_parm_village_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_parm_post_ofc">Po:</label>
-                            <input type="text" id="en_parm_post_ofc" value="{{old('en_parm_post_ofc')}}" class="form-control" placeholder="পোঃ" name="en_parm_post_ofc">
+                            <input type="text" id="en_parm_post_ofc" value="{{old('en_parm_post_ofc')}}" class="form-control" placeholder="Po:" name="en_parm_post_ofc">
                         </div>
                     </div>
                     {{--  <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="en_pre_thana_id">থানা</label>
+                            <label for="en_pre_thana_id">Thana</label>
                             <select name="en_pre_thana_id" class="form-control js-example-basic-single" id="en_pre_thana_id">
                                 <option value="">Select Thana</option>
                                 <option value="1">Panchlaish</option>
@@ -575,13 +575,13 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_parm_phone_my">Mobile no</label>
-                            <input type="text" id="en_parm_phone_my" value="{{old('en_parm_phone_my')}}" class="form-control" placeholder="মোবাইল নং নিজ" name="en_parm_phone_my">
+                            <input type="text" id="en_parm_phone_my" value="{{old('en_parm_phone_my')}}" class="form-control" placeholder="Mobile No" name="en_parm_phone_my">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_parm_phone_alt">Mobile No. Alter</label>
-                            <input type="text" id="en_parm_phone_alt" value="{{old('en_parm_phone_alt')}}" class="form-control" placeholder="মোবাইল নং বিকল্প" name="en_parm_phone_alt">
+                            <input type="text" id="en_parm_phone_alt" value="{{old('en_parm_phone_alt')}}" class="form-control" placeholder="Mobile no Alt" name="en_parm_phone_alt">
                         </div>
                     </div>
                 </div>
@@ -597,7 +597,7 @@
                             <select onchange="show_upazila(this.value)" name="en_pre_district_id" class=" form-control js-example-basic-single" id="en_pre_district_id">
                                 <option value="">Select Discrict</option>
                                 @forelse($districts as $d)
-                                <option value="{{$d->id}}" {{ old('en_pre_district_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option value="{{$d->id}}" {{ old('en_pre_district_id')==$d->id?"selected":""}}> {{ $d->name}}</option>
                                 @empty
                                     <option value="">No Country found</option>
                                 @endforelse
@@ -610,7 +610,7 @@
                             <select onchange="show_unions(this.value)" name="en_pre_upazila_id" class="form-control js-example-basic-single" id="en_pre_upazila_id">
                                 <option value="">Select Upazila</option>
                                 @forelse($upazila as $d)
-                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('en_pre_upazila_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('en_pre_upazila_id')==$d->id?"selected":""}}> {{ $d->name}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -623,7 +623,7 @@
                             <select name="en_pre_union_id" class="form-control js-example-basic-single" id="en_pre_union_id">
                                 <option value="">Select Union</option>
                                 @forelse($union as $u)
-                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('en_pre_union_id')==$u->id?"selected":""}}> {{ $u->name_bn}}</option>
+                                <option class="upazila upazila{{$u->upazila_id}}" value="{{$u->id}}" {{ old('en_pre_union_id')==$u->id?"selected":""}}> {{ $u->name}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -636,7 +636,7 @@
                             <select name="en_pre_ward_id" class=" form-control" id="en_pre_ward_no">
                                 <option value="">Select</option>
                                 @forelse($ward as $d)
-                                <option value="{{$d->id}}" {{ old('en_pre_ward_no')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                <option value="{{$d->id}}" {{ old('en_pre_ward_no')==$d->id?"selected":""}}> {{ $d->name}}</option>
                                 @empty
                                     <option value="">No district found</option>
                                 @endforelse
@@ -646,13 +646,13 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_pre_holding_no">Holding no</label>
-                            <input type="text" id="en_pre_holding_no" value="{{old('en_pre_holding_no')}}" class="form-control" placeholder="হোল্ডিং নং" name="en_pre_holding_no">
+                            <input type="text" id="en_pre_holding_no" value="{{old('en_pre_holding_no')}}" class="form-control" placeholder="Holding no" name="en_pre_holding_no">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_pre_village_name">village name</label>
-                            <input type="text" id="en_pre_village_name" value="{{old('en_pre_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="en_pre_village_name">
+                            <input type="text" id="en_pre_village_name" value="{{old('en_pre_village_name')}}" class="form-control" placeholder="village name" name="en_pre_village_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -663,7 +663,7 @@
                     </div>
                     {{--  <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="en_applicants_name">থানা</label>
+                            <label for="en_applicants_name">Thana</label>
                             <select name="en_prem_thana_id" class="form-control js-example-basic-single" id="en_prem_thana_id">
                                 <option value="">Select Thana</option>
                                 <option value="1">Panchlaish</option>
@@ -797,7 +797,7 @@
                     <div class="col-md-3 col-12 d-none en_spouse_name1" id="en_spouse_name1">
                         <div class="form-group">
                             <label for="en_spouse_name">Spouse Name</label>
-                            <input type="text" id="en_spouse_name" value="{{old('en_spouse_name')}}" class="form-control" placeholder="" name="en_spouse_name[]">
+                            {{--  <input type="text" id="en_spouse_name" value="{{old('en_spouse_name')}}" class="form-control" placeholder="" name="en_spouse_name[]">  --}}
                         </div>
                     </div>
                 </div>
@@ -805,13 +805,13 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_song_name">Son's name</label>
-                            <input type="text" id="en_song_name" value="{{old('en_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="en_song_name[]">
+                            {{--  <input type="text" id="en_song_name" value="{{old('en_song_name')}}" class="form-control" placeholder="son's Name" name="en_song_name[]">  --}}
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_daughters_name">Girl's name</label>
-                            <input type="text" id="en_daughters_name" value="{{old('en_daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="en_daughters_name[]">
+                            {{--  <input type="text" id="en_daughters_name" value="{{old('en_daughters_name')}}" class="form-control" placeholder="Douthters name" name="en_daughters_name[]">  --}}
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 ps-0">
@@ -825,37 +825,37 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_legacy_name">Name of Successor</label>
-                            <input type="text" id="en_legacy_name" value="{{old('en_legacy_name')}}" class="form-control" placeholder="উত্তরাধীকারী এর নাম" name="en_legacy_name">
+                            <input type="text" id="en_legacy_name" value="{{old('en_legacy_name')}}" class="form-control" placeholder="Name of Successor" name="en_legacy_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_legacy_relation">Relationship</label>
-                            <input type="text" id="en_legacy_relation" value="{{old('en_legacy_relation')}}" class="form-control" placeholder="সম্পর্ক" name="en_legacy_relation">
+                            <input type="text" id="en_legacy_relation" value="{{old('en_legacy_relation')}}" class="form-control" placeholder="Relationship" name="en_legacy_relation">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_reference_admittee">NAME OF RECOMMENDATION/REFERENCE OF ADMITTEE</label>
-                            <input type="text" id="en_reference_admittee" value="{{old('en_reference_admittee')}}" class="form-control" placeholder="ভর্তিকারীর সুপারিশ/রেফারেন্স নাম" name="en_reference_admittee">
+                            <input type="text" id="en_reference_admittee" value="{{old('en_reference_admittee')}}" class="form-control" placeholder="NAME OF RECOMMENDATION/REFERENCE OF ADMITTEE" name="en_reference_admittee">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_reference_adm_phone">Mobile</label>
-                            <input type="text" id="en_reference_adm_phone" value="{{old('en_reference_adm_phone')}}" class="form-control" placeholder="মোবাইল" name="en_reference_adm_phone">
+                            <input type="text" id="en_reference_adm_phone" value="{{old('en_reference_adm_phone')}}" class="form-control" placeholder="Mobile" name="en_reference_adm_phone">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_reference_adm_adress">Address</label>
-                            <input type="text" id="en_reference_adm_adress" value="{{old('en_reference_adm_adress')}}" class="form-control" placeholder="ঠিকানা" name="en_reference_adm_adress">
+                            <input type="text" id="en_reference_adm_adress" value="{{old('en_reference_adm_adress')}}" class="form-control" placeholder="Address" name="en_reference_adm_adress">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_applied_position">Position applied for</label>
-                            <input type="text" id="en_applied_position" value="{{old('en_applied_position')}}" class="form-control" placeholder="আবেদিত পদ" name="en_applied_position">
+                            <input type="text" id="en_applied_position" value="{{old('en_applied_position')}}" class="form-control" placeholder="applied Post" name="en_applied_position">
                         </div>
                     </div>
                 </div>
@@ -869,7 +869,7 @@
                             <div class="card-content">
                                 <div class="card-body p-0">
                                     <!-- Basic file uploader -->
-                                    <input type="file" class="basic-filepond" name="signature_img">
+                                    <input type="file" class="" name="signature_img">
                                 </div>
                             </div>
                         </div>
@@ -890,13 +890,13 @@
             <div class="col-md-4 col-12">
                 <div class="form-group">
                     <label for="bn_applicants_name">ছেলের নাম</label>
-                    <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name[]">
+                    {{--  <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name[]">  --}}
                 </div>
             </div>
             <div class="col-md-4 col-12">
                 <div class="form-group">
                     <label for="daughters_name">মেয়ের নাম</label>
-                    <input type="text" id="daughters_name" value="{{old('daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="daughters_name[]">
+                    {{--  <input type="text" id="daughters_name" value="{{old('daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="daughters_name[]">  --}}
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 ps-0">
