@@ -587,7 +587,7 @@
                 </div>
                 <div class="row mt-2">
                     <h6 class="">Prensent Address </h6>
-                    <p>Check if permanent and current address are same<input class="ms-2" type="checkbox" id="copyCheckbox" onclick="copyAddress();"></p>
+                    {{--  <p>Check if permanent and current address are same<input class="ms-2" type="checkbox" id="copyCheckbox" onclick="copyAddress();"></p>  --}}
 
                 </div>
                 <div class="row">

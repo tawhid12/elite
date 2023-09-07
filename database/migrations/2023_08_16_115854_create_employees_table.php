@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('profile_img')->nullable();
             $table->string('signature_img')->nullable();
+            $table->string('admission_id_no')->nullable();
 
             $table->text('bn_applicants_name')->nullable();
             $table->text('bn_fathers_name')->nullable();

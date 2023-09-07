@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Employee;
 use App\Http\Controllers\Controller;
 
 use App\Models\Employee\Employee;
+use App\Models\Employee\SecurityPriorAcquaintance;
 use Illuminate\Http\Request;
 
 use App\Models\Settings\Location\District;
@@ -67,6 +68,7 @@ class EmployeeController extends Controller
             $employee->bn_applicants_name = $request->bn_applicants_name;
             $employee->bn_fathers_name = $request->bn_fathers_name;
             $employee->bn_mothers_name = $request->bn_mothers_name;
+            $employee->admission_id_no = 'AD-'.Carbon::now()->format('m-y').'-'. str_pad((Employee::whereYear('created_at', Carbon::now()->year)->count() + 1),4,"0",STR_PAD_LEFT);
 
             $employee->bn_parm_district_id = $request->bn_parm_district_id;
             $employee->bn_parm_upazila_id = $request->bn_parm_upazila_id;
@@ -176,8 +178,8 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        $emp = Employee::findOrFail(encryptor('decrypt', $id));
-        return view('employee.show', compact('emp'));
+        $employees = Employee::findOrFail(encryptor('decrypt', $id));
+        return view('employee.show', compact('employees'));
     }
 
     /**
@@ -217,6 +219,68 @@ class EmployeeController extends Controller
     public function securityGuards($id)
     {
         $employees = Employee::findOrFail(encryptor('decrypt', $id));
-        return view('employee.security-prior-acquaintance',compact('employees'));
+        $districts = District::all();
+        $upazila = Upazila::all();
+        return view('employee.security-prior-acquaintance',compact('employees','districts','upazila'));
+    }
+
+    public function securityGuardsStore(Request $request)
+    {
+        try{
+            $security=new SecurityPriorAcquaintance;
+            $security->employee_id=$request->employee_id;
+            $security->bn_in_laws_district_id=$request->bn_in_laws_district_id;
+            $security->bn_in_laws_upazilla_id=$request->bn_in_laws_upazilla_id;
+            $security->bn_in_laws_village_name=$request->bn_in_laws_village_name;
+            $security->bn_in_laws_post_office=$request->bn_in_laws_post_office;
+            $security->bn_husband_profession=$request->bn_husband_profession;
+            $security->bn_father_profession=$request->bn_father_profession;
+            $security->bn_landlord_name=$request->bn_landlord_name;
+            $security->bn_landlord_mobile_no=$request->bn_landlord_mobile_no;
+            $security->bn_living_dur=$request->bn_living_dur;
+            $security->bn_passport_no=$request->bn_passport_no;
+            $security->bn_old_office_name=$request->bn_old_office_name;
+            $security->bn_old_office_address=$request->bn_old_office_address;
+            $security->bn_resign_reason=$request->bn_resign_reason;
+            $security->bn_resign_letter_status=$request->bn_resign_letter_status;
+            $security->bn_service_book_status=$request->bn_service_book_status;
+            $security->bn_service_book_no=$request->bn_service_book_no;
+            $security->bn_old_job_salary=$request->bn_old_job_salary;
+            $security->bn_old_job_last_desig=$request->bn_old_job_last_desig;
+            $security->bn_old_job_experience=$request->bn_old_job_experience;
+            $security->bn_new_job_transportation=$request->bn_new_job_transportation;
+            $security->bn_current_living=$request->bn_current_living;
+            $security->bn_total_member=$request->bn_total_member;
+            $security->bn_mobile_no=$request->bn_mobile_no;
+            $security->bn_solvent_person=$request->bn_solvent_person;
+            $security->bn_sim_card_reg_status=$request->bn_sim_card_reg_status;
+            $security->bn_case_filed_status=$request->bn_case_filed_status;
+            $security->bn_old_job_officer_name=$request->bn_old_job_officer_name;
+            $security->bn_old_job_officer_mobile=$request->bn_old_job_officer_mobile;
+            $security->bn_old_job_officer_post=$request->bn_old_job_officer_post;
+            $security->bn_identifier_name1=$request->bn_identifier_name1;
+            $security->bn_identifier_occupation1=$request->bn_identifier_occupation1;
+            $security->bn_identifier_address1=$request->bn_identifier_address1;
+            $security->bn_identifier_phone1=$request->bn_identifier_phone1;
+            $security->bn_identifier_name2=$request->bn_identifier_name2;
+            $security->bn_identifier_occupation2=$request->bn_identifier_occupation2;
+            $security->bn_identifier_address2=$request->bn_identifier_address2;
+            $security->bn_identifier_phone2=$request->bn_identifier_phone2;
+            if($request->has('informant_sing'))
+            $security->informant_sing=$this->uploadImage($request->informant_sing,'uploads/informant_sing/');
+            if($request->has('data_collector_sing'))
+            $security->data_collector_sing=$this->uploadImage($request->data_collector_sing,'uploads/data_collector_sing/');
+            if($request->has('executive_sing'))
+            $security->executive_sing=$this->uploadImage($request->executive_sing,'uploads/executive_sing/');
+            if($request->has('manager_sing'))
+            $security->manager_sing=$this->uploadImage($request->manager_sing,'uploads/manager_sing/');
+            if($security->save())
+            return redirect()->route('employee.index', ['role' =>currentUser()])->with(Toastr::success('Data Saved!', 'Success', ["positionClass" => "toast-top-right"]));
+            else
+                return redirect()->back()->withInput()->with($this->resMessageHtml(false,'error','please try again'));
+        }catch(Exception $e){
+            // dd($e);
+            return redirect()->back()->withInput()->with($this->resMessageHtml(false,'error','Please try again'));
+        }
     }
 }

@@ -28,9 +28,9 @@
 <div class="col-12 p-3">
     <div class="border">
         <div class="p-3">
-            <form class="form" method="post" action="{{route('employee.store', ['role' =>currentUser()])}}" enctype="multipart/form-data">
+            <form class="form" method="post" action="{{route('security.store', ['role' =>currentUser()])}}" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" value="{{ $employees->id }}" name="" id="">
+                <input type="hidden" value="{{ $employees->id }}" name="employee_id" id="">
                 <div class="row">
                     <h5 class="text-center m-0">এলিট সিকিউরিটি সার্ভিস লিমিটেড</h5>
                 </div>
@@ -97,30 +97,6 @@
                             <input readonly type="text" id="bn_edu_qualification" value="{{old('bn_edu_qualification',$employees->bn_edu_qualification)}}" class="form-control" placeholder="" name="bn_edu_qualification">
                         </div>
                     </div>
-                    {{--  <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">স্বামীর নাম</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_husband_name')}}" class="form-control" placeholder="" name="bn_husband_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">স্ত্রীর নাম</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_spouse_name')}}" class="form-control" placeholder="" name="bn_spouse_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">ছেলের নাম</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_son_name')}}" class="form-control" placeholder="" name="bn_son_name">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="form-group">
-                            <label for="bn_applicants_name">মেয়ের নাম</label>
-                            <input type="text" id="bn_applicants_name" value="{{old('bn_daughter_name')}}" class="form-control" placeholder="" name="bn_daughter_name">
-                        </div>
-                    </div>  --}}
                 </div>
                 <div class="row mt-2">
                     <h6 class="">বর্তমান ঠিকানা </h6>
@@ -200,69 +176,82 @@
                         </div>
                     </div>
                 </div>
-                <div class="row gx-1">
+
+
+                <div class="row mt-2">
                     <h6 class="text-center my-5 border-bottom">নিরাপত্তা প্রহরীদের পূর্ব পরিচিতি</h6>
                     <div class="col-md-7 col-12">
                         <div class="form-group">
                             <label for="bn_applicants_name">শশুর বাড়ির ঠিকানা (বিবাহিত মহিলাদের জন্য)</label>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-6 col-12">
-                                    <input type="text" id="bn_in_laws_village_name" value="{{old('bn_in_laws_village_name')}}" class="form-control" placeholder="গ্রাম মহল্লা" name="bn_in_laws_village_name">
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <select name="bn_in_laws_post_office_id" class="form-control js-example-basic-single" id="bn_in_laws_post_office_id">
-                                        <option value="">Select Post Office</option>
-                                        <option value="1">Panchlaish</option>
-                                        <option value="2">Halishahar</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row gx-1 my-2">
-                                <div class="col-md-6 col-12">
-                                    <select name="bn_in_laws_thana_id" class="form-control js-example-basic-single" id="bn_in_laws_thana_id">
-                                        <option value="">Select Thana</option>
-                                        <option value="1">Panchlaish</option>
-                                        <option value="2">Halishahar</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <select name="bn_in_laws_district_id" class="form-control js-example-basic-single" id="bn_in_laws_district_id">
-                                        <option value="">Select Discrict</option>
-                                        <option value="1">Chittagong</option>
-                                        <option value="2">Dhaka</option>
-                                    </select>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-md-5 col-12">
-                        <div class="row gx-1">
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="bn_husband_profession">স্বামীর পেশা</label>
-                                    <input type="text" id="bn_husband_profession" value="{{old('bn_husband_profession')}}" class="form-control" placeholder="" name="bn_husband_profession">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="bn_father_profession">পিতার পেশা</label>
-                                    <input type="text" id="bn_father_profession" value="{{old('bn_father_profession')}}" class="form-control" placeholder="" name="bn_father_profession">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="bn_old_job_designation">পদবি</label>
-                                    <input type="text" id="bn_old_job_designation" value="{{old('bn_old_job_designation')}}" class="form-control" placeholder="" name="bn_old_job_designation">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="bn_old_job_id">আইডি</label>
-                                    <input type="text" id="bn_old_job_id" value="{{old('bn_old_job_id')}}" class="form-control" placeholder="" name="bn_old_job_id">
-                                </div>
-                            </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_in_laws_district_id">জেলা</label>
+                            <select onchange="show_upazila(this.value)" name="bn_in_laws_district_id" class=" form-control js-example-basic-single" id="bn_in_laws_district_id">
+                                <option value="">Select Discrict</option>
+                                @forelse($districts as $d)
+                                <option value="{{$d->id}}" {{ old('bn_in_laws_district_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                @empty
+                                    <option value="">No Country found</option>
+                                @endforelse
+                            </select>
                         </div>
                     </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_in_laws_upazilla_id">উপজেলা</label>
+                            <select name="bn_in_laws_upazilla_id" class="form-control js-example-basic-single" id="bn_in_laws_upazilla_id">
+                                <option value="">Select Upazila</option>
+                                @forelse($upazila as $d)
+                                <option class="district district{{$d->district_id}}" value="{{$d->id}}" {{ old('bn_in_laws_upazilla_id')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
+                                @empty
+                                    <option value="">No district found</option>
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_in_laws_village_name">গ্রামের নাম</label>
+                            <input type="text" id="bn_in_laws_village_name" value="{{old('bn_in_laws_village_name')}}" class="form-control" placeholder="গ্রামের নাম" name="bn_in_laws_village_name">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_in_laws_post_office">ডাকঘর</label>
+                            <input type="text" id="bn_in_laws_post_office" value="{{old('bn_in_laws_post_office')}}" class="form-control" placeholder="ডাকঘর" name="bn_in_laws_post_office">
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-1">
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_husband_profession">স্বামীর পেশা</label>
+                            <input type="text" id="bn_husband_profession" value="{{old('bn_husband_profession')}}" class="form-control" placeholder="" name="bn_husband_profession">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_father_profession">পিতার পেশা</label>
+                            <input type="text" id="bn_father_profession" value="{{old('bn_father_profession')}}" class="form-control" placeholder="" name="bn_father_profession">
+                        </div>
+                    </div>
+                    {{--  <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_old_job_designation">পদবি</label>
+                            <input type="text" id="bn_old_job_designation" value="{{old('bn_old_job_designation')}}" class="form-control" placeholder="" name="bn_old_job_designation">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_old_job_id">আইডি</label>
+                            <input type="text" id="bn_old_job_id" value="{{old('bn_old_job_id')}}" class="form-control" placeholder="" name="bn_old_job_id">
+                        </div>
+                    </div>  --}}
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_landlord_name">জমিদারের নাম</label>
@@ -277,7 +266,7 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_living_dur">বর্তমান ঠিকানায় যাবৎ কতদিন বাস করছেন</label>
+                            <label for="bn_living_dur">বর্তমান ঠিকানায় কতদিন যাবৎ বাস করছেন</label>
                             <input type="text" id="bn_living_dur" value="{{old('bn_living_dur')}}" class="form-control" placeholder="" name="bn_living_dur">
                         </div>
                     </div>
@@ -317,12 +306,18 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">সার্ভিস বই আছে কি ?</label>
+                            <label for="bn_service_book_status">সার্ভিস বই আছে কি ?</label>
                             <select id="bn_service_book_status" class="form-control" name="bn_service_book_status">
                                 <option value="">নির্বাচন করুন</option>
                                 <option value="1">হা</option>
                                 <option value="2">না</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_service_book_no">সার্ভিস বই নং</label>
+                            <input type="text" id="bn_service_book_no" value="{{old('bn_service_book_no')}}" class="form-control" placeholder="" name="bn_service_book_no">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -333,8 +328,20 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
+                            <label for="bn_old_job_last_desig">পূর্বের কর্মস্থলে সর্বশেষ পদবী কি ছিলো</label>
+                            <input type="text" id="bn_old_job_last_desig" value="{{old('bn_old_job_last_desig')}}" class="form-control" placeholder="" name="bn_old_job_last_desig">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
                             <label for="bn_old_job_experience">পূর্বের কর্মস্থলের মোট চাকুরীর বয়স কত</label>
                             <input type="text" id="bn_old_job_experience" value="{{old('bn_old_job_experience')}}" class="form-control" placeholder="" name="bn_old_job_experience">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_new_job_transportation">বর্তমান কর্মস্থল হতে আপনার বাসার যাতায়াতের মাধ্যম কি</label>
+                            <input type="text" id="bn_new_job_transportation" value="{{old('bn_new_job_transportation')}}" class="form-control" placeholder="" name="bn_new_job_transportation">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -347,6 +354,12 @@
                         <div class="form-group">
                             <label for="bn_total_member">পরিবার এর সদস্য সংখ্যা কত</label>
                             <input type="text" id="bn_total_member" value="{{old('bn_total_member')}}" class="form-control" placeholder="" name="bn_total_member">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="bn_mobile_no">মোবাইল নং (যদি থাকে)</label>
+                            <input type="text" id="bn_mobile_no" value="{{old('bn_mobile_no')}}" class="form-control" placeholder="" name="bn_mobile_no">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -394,6 +407,91 @@
                         </div>
                     </div>
                 </div>
+                <div class="row mt-2">
+                    <div class="col-md-7 col-12">
+                        <div class="form-group">
+                            <label for="bn_applicants_name">দুইজন সনাক্তকারী</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_identifier_name1">নাম</label>
+                            <input type="text" id="bn_identifier_name1" value="{{old('bn_identifier_name1')}}" class="form-control" placeholder="নাম" name="bn_identifier_name1">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_identifier_occupation1">পেশা</label>
+                            <input type="text" id="bn_identifier_occupation1" value="{{old('bn_identifier_occupation1')}}" class="form-control" placeholder="পেশা" name="bn_identifier_occupation1">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_identifier_address1">ঠিকানা</label>
+                            <input type="text" id="bn_identifier_address1" value="{{old('bn_identifier_address1')}}" class="form-control" placeholder="ঠিকানা" name="bn_identifier_address1">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_identifier_phone1">ফোন নং</label>
+                            <input type="text" id="bn_identifier_phone1" value="{{old('bn_identifier_phone1')}}" class="form-control" placeholder="ফোন নং" name="bn_identifier_phone1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_identifier_name2">নাম</label>
+                            <input type="text" id="bn_identifier_name2" value="{{old('bn_identifier_name2')}}" class="form-control" placeholder="নাম" name="bn_identifier_name2">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_identifier_occupation2">পেশা</label>
+                            <input type="text" id="bn_identifier_occupation2" value="{{old('bn_identifier_occupation2')}}" class="form-control" placeholder="পেশা" name="bn_identifier_occupation2">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_identifier_address2">ঠিকানা</label>
+                            <input type="text" id="bn_identifier_address2" value="{{old('bn_identifier_address2')}}" class="form-control" placeholder="ঠিকানা" name="bn_identifier_address2">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_identifier_phone2">ফোন নং</label>
+                            <input type="text" id="bn_identifier_phone2" value="{{old('bn_identifier_phone2')}}" class="form-control" placeholder="ফোন নং" name="bn_identifier_phone2">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="informant_sing">তথ্যদানকারীর স্বাক্ষর</label>
+                            <input type="file" id="informant_sing" value="{{old('informant_sing')}}" class="form-control" placeholder="তথ্যদানকারীর স্বাক্ষর" name="informant_sing">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="data_collector_sing">তথ্য সংগ্রহকারীর স্বাক্ষর</label>
+                            <input type="file" id="data_collector_sing" value="{{old('data_collector_sing')}}" class="form-control" placeholder="তথ্য সংগ্রহকারীর স্বাক্ষর" name="data_collector_sing">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="executive_sing">এক্সিকিউটিভ(এইচআর)</label>
+                            <input type="file" id="executive_sing" value="{{old('executive_sing')}}" class="form-control" placeholder="এক্সিকিউটিভ(এইচআর)" name="executive_sing">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="manager_sing">ম্যানেজার(অপারেশন)</label>
+                            <input type="file" id="manager_sing" value="{{old('manager_sing')}}" class="form-control" placeholder="ম্যানেজার(অপারেশন)" name="manager_sing">
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12 d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
@@ -403,6 +501,18 @@
 </div>
 @endsection
 @push('scripts')
+<script>
+    /* call on load page */
+    $(document).ready(function(){
+        $('.district').hide();
+        $('.upazila').hide();
+    })
+
+    function show_upazila(e){
+            $('.district').hide();
+            $('.district'+e).show();
+    }
+</script>
 <script src="{{ asset('/assets/extensions/filepond/filepond.js') }}"></script>
 <script src="{{ asset('/assets/extensions/toastify-js/src/toastify.js') }}"></script>
 <script src="{{ asset('/assets/js/pages/filepond.js') }}"></script>
