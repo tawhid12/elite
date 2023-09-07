@@ -35,7 +35,6 @@ class EmployeeController extends Controller
         $employees = Employee::paginate(20);
         return view('employee.index',compact('employees'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -213,5 +212,11 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         //
+    }
+
+    public function securityGuards($id)
+    {
+        $employees = Employee::findOrFail(encryptor('decrypt', $id));
+        return view('employee.security-prior-acquaintance',compact('employees'));
     }
 }

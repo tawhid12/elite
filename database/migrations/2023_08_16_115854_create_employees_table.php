@@ -25,8 +25,8 @@ return new class extends Migration
             $table->integer('bn_parm_upazila_id')->nullable();
             $table->integer('bn_parm_union_id')->nullable();
             $table->integer('bn_parm_ward_id')->nullable();
-            $table->integer('bn_parm_holding_name')->nullable();
-            $table->integer('bn_parm_village_name')->nullable();
+            $table->string('bn_parm_holding_name')->nullable();
+            $table->string('bn_parm_village_name')->nullable();
             $table->text('bn_parm_post_ofc')->nullable();
             $table->text('bn_parm_phone_my')->nullable();
             $table->text('bn_parm_phone_alt')->nullable();

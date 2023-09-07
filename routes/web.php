@@ -92,6 +92,7 @@ Route::group(['middleware'=>isSuperadmin::class],function(){
 
 
         Route::resource('employee', employee::class);
+        Route::get('/prior-introduction-security-guards/{id}', [employee::class,'securityGuards'])->name('securityGuards');
         Route::get('employee/{id}', 'EmployeeController@show')->name('employee.show');
 
 

@@ -403,7 +403,7 @@
                     <div class="col-md-3 col-12 d-none bn_spouse_name1" id="bn_spouse_name1">
                         <div class="form-group">
                             <label for="bn_spouse_name">স্বামী/স্ত্রীর নাম</label>
-                            {{--  <input type="text" id="bn_spouse_name" value="{{old('bn_spouse_name')}}" class="form-control" placeholder="" name="bn_spouse_name[]">  --}}
+                            <input type="text" id="bn_spouse_name" value="{{old('bn_spouse_name')}}" class="form-control" placeholder="" name="bn_spouse_name">
                         </div>
                     </div>
                 </div>
