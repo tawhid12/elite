@@ -153,6 +153,12 @@ class EmployeeController extends Controller
             $employee->en_reference_adm_phone = $request->en_reference_adm_phone;
             $employee->en_reference_adm_adress = $request->en_reference_adm_adress;
             $employee->en_applied_position = $request->en_applied_position;
+            $employee->bn_cer_gender = $request->bn_cer_gender;
+            $employee->bn_cer_physical_ability = $request->bn_cer_physical_ability;
+            if($request->has('concerned_person_sign'))
+            $employee->concerned_person_sign=$this->uploadImage($request->concerned_person_sign,'uploads/concerned_person_sign/');
+            if($request->has('bn_doctor_sign'))
+            $employee->bn_doctor_sign=$this->uploadImage($request->bn_doctor_sign,'uploads/bn_doctor_sign/');
 
             if($request->has('profile_img'))
             $employee->profile_img=$this->uploadImage($request->profile_img,'uploads/profile_img/');

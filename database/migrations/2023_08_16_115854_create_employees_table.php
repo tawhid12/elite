@@ -107,6 +107,12 @@ return new class extends Migration
             $table->string('en_reference_adm_adress')->nullable();
             $table->string('en_applied_position')->nullable();
             $table->boolean('status')->default(1)->comment('1=>active 2=>inactive');
+
+            $table->boolean('bn_cer_gender')->nullable()->comment('0=>male ,1=>female');
+            $table->string('bn_cer_physical_ability')->nullable();
+            $table->string('concerned_person_sign')->nullable();
+            $table->string('bn_doctor_sign')->nullable();
+
             $table->unsignedBigInteger('created_by')->index()->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('updated_by')->nullable()->index()->foreign('updated_by')->references('id')->on('users')->onDelete('cascade');
 

@@ -465,6 +465,36 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <p>প্রত্যয়ন পত্রের জন্য:</p>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_cer_gender">লিঙ্গ:</label>
+                            <input type="radio" id="ma" name="bn_cer_gender" value="0">
+                            <label for="ma">পুরুষ</label>
+                            <input type="radio" id="fe" name="bn_cer_gender" value="1">
+                            <label for="fe">মহিলা</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_cer_physical_ability">দৈহিক সক্ষমতা</label>
+                            <input type="text" id="bn_cer_physical_ability" value="{{old('bn_cer_physical_ability')}}" class="form-control" placeholder="দৈহিক সক্ষমতা" name="bn_cer_physical_ability">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="concerned_person_sign">সংশ্লিষ্ট ব্যক্তির স্বক্ষর</label>
+                            <input type="file" id="concerned_person_sign" value="{{old('concerned_person_sign')}}" class="form-control" placeholder="সংশ্লিষ্ট ব্যক্তির স্বক্ষর" name="concerned_person_sign">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="bn_doctor_sign">রেজিস্টার্ড চিকিৎসকের স্বাক্ষর</label>
+                            <input type="file" id="bn_doctor_sign" value="{{old('bn_doctor_sign')}}" class="form-control" placeholder="রেজিস্টার্ড চিকিৎসকের স্বাক্ষর" name="bn_doctor_sign">
+                        </div>
+                    </div>
+                </div>
 {{--  English  --}}
                 <div class="row">
                     <h6 class="text-center my-3">Curriculum vitae/personal details/details</h6>

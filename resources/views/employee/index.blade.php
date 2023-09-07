@@ -35,9 +35,12 @@
                             <a href="{{route('employee.show',encryptor('encrypt',$e->id))}}">
                                 <i class="bi bi-eye"></i>
                             </a>
-                            <a class="btn btn-sm btn-primary float-end" href="{{route('securityGuards',encryptor('encrypt',$e->id))}}">
+                            <a class="btn btn-sm btn-primary float-end ms-2" href="{{route('securityGuards',encryptor('encrypt',$e->id))}}">
                                 Security
-                            </a>
+                            </a> <br/>
+                            {{--  <a class="btn btn-sm btn-primary float-end ms-2" href="{{route('securityGuards',encryptor('encrypt',$e->id))}}">
+                                Certificate
+                            </a>  --}}
                         </td>
                     </tr>
                     @empty
