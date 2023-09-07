@@ -70,6 +70,10 @@
             border-color: blue;
             background-color: transparent;
         }
+        .tbl_border{
+            border: 1px solid;
+            border-collapse: collapse;
+        }
     </style>
     <section>
         <div class="container">
@@ -364,6 +368,109 @@
                         </tr>
                         <tr>
                             <th colspan="3" style="padding-top: 5rem;">আবেদনকারীর সাক্ষর</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center mt-5">
+                    <h5 style="padding-top: 3rem;">ফরম নং-১৫ </h5>
+                    <p style="margin: 2px;">ধারা ৩৪, ৩৬, ৩৭ ও ২৭৭ এবং বিধি ৩৪ (১) ও ৩৩৬ (৪)</p>
+                    <p style="margin: 2px;"><b>বয়স ও সক্ষমতার প্রত্যয়নপত্র</b></p>
+                </div>
+                <table class="tbl_border" style="width: 100%;">
+                    <tbody>
+                        <tr class="tbl_border" style="text-align: center;">
+                            <th class="tbl_border">বয়স ও সক্ষমতার প্রত্যয়নপত্র</th>
+                            <th class="tbl_border">বয়স ও সক্ষমতার প্রত্যয়নপত্র</th>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">১ । ক্রমিক নং {{ $employees->id }}</td>
+                            <td class="tbl_border">১ । ক্রমিক নং {{ $employees->id }}</td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">তারিখ {{ date('d-M-Y', strtotime($employees->created_at)) }}</td>
+                            <td class="tbl_border">তারিখ {{ date('d-M-Y', strtotime($employees->created_at)) }}</td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">২ । নাম</td>
+                            <td class="tbl_border">{{ $employees->bn_applicants_name }}</td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">২ । পিতার নাম: {{ $employees->bn_fathers_name }}</td>
+                            <td class="tbl_border">
+                                আমি এই মর্মে প্রত্যয়ন করিতেছি যে (নাম )<input type="text" class="sminput"  value="{{ $employees->bn_applicants_name }}">পিতা:<input type="text" class="sminput"  value="{{ $employees->bn_fathers_name }}">মাতা:<input type="text" class="sminput"  value="কামাল">ঠিকানা :<input type="text" class="semiTinput"  value="কামাল">কে আমি পরীক্ষা করিয়াছি।
+                            </td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">৩ । মাতার নাম:</td>
+                            <td  class="tbl_border">
+                                আমি এই মর্মে প্রত্যয়ন করিতেছি যে (নাম )<input type="text" class="sminput"  value="কামাল">পিতা:<input type="text" class="sminput"  value="কামাল">মাতা:<input type="text" class="sminput"  value="{{ $employees->bn_mothers_name }}">ঠিকানা :<input type="text" class="semiTinput"  value="ঠিকানা">কে আমি পরীক্ষা করিয়াছি।
+                            </td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">৪ । লিঙ্গ: পুরুষ/মহিলা
+                            </td>
+                            <td  class="tbl_border">
+                                তিনি প্রতিষ্টানে নিযুক্ত হইতে ইচ্ছুক এবং আমার পরীক্ষা হইতে এইরূপ পাওয়া গিয়াছে যে তাহার বয়স<input type="text" class="verySmall"  value="30">বছর এবং তিনি প্রতিষ্টানে প্রাপ্ত বয়স্ক/কিশোর হিসাবে নিযুক্ত হইবার যুগ্য।
+                            </td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td style="width: 40%;"  class="tbl_border">৫ । স্থায়ী ঠিকানা <br>
+
+                                <label for="">গ্রাম:</label>{{ $employees->bn_parm_village_name }}&nbsp;&nbsp;
+                                <label for="">পোঃ:</label>{{ $employees->bn_parm_post_ofc }}&nbsp;&nbsp;<br>
+                                <label for="">উপজেলা:</label>{{ $employees->bn_parm_upazilla?->name_bn }} &nbsp;&nbsp;<br>
+                                <label for="">জেলা:</label>{{ $employees->bn_parm_district?->name_bn }}
+                            </td>
+                            <td  class="tbl_border">
+                                তাহার সনাক্তকরণের চিহ্ন :<input type="text" class="verySmall"  value="30">
+                            </td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">৬ । অস্থায়ী/যুগযুগের ঠিকানা - হোল্ডিং নং -<br>
+                                <label for="">গ্রাম/সড়ক:</label>{{ $employees->bn_pre_village_name }}&nbsp;&nbsp;
+                                <label for="">পোঃ:</label>{{ $employees->bn_pre_post_ofc }}&nbsp;&nbsp;<br>
+                                <label for="">উপজেলা:</label>{{ $employees->bn_upazilla?->name_bn }} &nbsp;&nbsp;<br>
+                                <label for="">জেলা:</label>{{ $employees->bn_district?->name_bn }}
+                            </td>
+                            <td  class="tbl_border"></td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">৮। জন্ম সনদ/শিক্ষা সনদ অনুসারে বয়স/জন্ম তারিখ :</td>
+                            <td  class="tbl_border">{{ $employees->bn_dob }}</td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">৯। দৈহিক সক্ষমতা :</td>
+                            <td  class="tbl_border"></td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">১০। সনাক্তকরণ চিহ্ন :</td>
+                            <td  class="tbl_border"></td>
+                        </tr>
+                        <tr class="tbl_border">
+                            <td class="tbl_border">
+                                <div class="d-flex justify-content-between p-2">
+                                    <div>
+                                        <img src="" alt="img">
+                                        <p>সংশ্লিষ্ট ব্যক্তির সাক্ষর/টিপসহি </p>
+                                    </div>
+                                    <div>
+                                        <img src="" alt="img">
+                                        <p>রেজিস্টার্ড চিকিৎসকের সাক্ষর</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td  class="tbl_border">
+                                <div class="d-flex justify-content-between p-2">
+                                    <div>
+                                        <img src="" alt="img">
+                                        <p>সংশ্লিষ্ট ব্যক্তির সাক্ষর/টিপসহি </p>
+                                    </div>
+                                    <div>
+                                        <img src="" alt="img">
+                                        <p>রেজিস্টার্ড চিকিৎসকের সাক্ষর</p>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
