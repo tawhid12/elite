@@ -69,8 +69,8 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_applicants_name">আইডি নং</label>
-                            <input readonly type="text" id="bn_applicants_name" value="{{old('bn_fathers_name',$employees->bn_fathers_name)}}" class="form-control" placeholder="" name="bn_fathers_name">
+                            <label for="admission_id_no">আইডি নং</label>
+                            <input readonly type="text" id="admission_id_no" value="{{old('admission_id_no',$employees->admission_id_no)}}" class="form-control" placeholder="" name="admission_id_no">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">

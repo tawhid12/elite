@@ -212,7 +212,8 @@ class EmployeeController extends Controller
     public function show($id)
     {
         $employees = Employee::findOrFail(encryptor('decrypt', $id));
-        return view('employee.show', compact('employees'));
+        $security=SecurityPriorAcquaintance::where('employee_id',encryptor('decrypt', $id))->first();
+        return view('employee.show', compact('employees','security'));
     }
 
     /**
