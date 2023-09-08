@@ -98,20 +98,20 @@
                 <table style="width:100%">
                     <tbody >
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">১ । আবেদনকারীর নাম :</td>
-                            <td class="py-2" colspan="5" style="width: 40%;"><input type="text" class="tinput"  value="{{ $employees->bn_applicants_name }}"></td>
-                            <td class="py-2" style="text-align: center; width: 20%;">ভর্তির পর আইডি নং</td>
-                            <td class="py-2" colspan="2" style="width: 15%;"><input type="text" class="tinput"  value="{{ $employees->admission_id_no }}"></td>
+                            <td class="py-1" style="text-align: left; width: 25%;">১ । আবেদনকারীর নাম :</td>
+                            <td class="py-1" colspan="5" style="width: 40%;"><input type="text" class="tinput"  value="{{ $employees->bn_applicants_name }}"></td>
+                            <td class="py-1" style="text-align: center; width: 20%;">ভর্তির পর আইডি নং</td>
+                            <td class="py-1" colspan="2" style="width: 15%;"><input type="text" class="tinput"  value="{{ $employees->admission_id_no }}"></td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">২ । পিতার নাম:</td>
-                            <td class="py-2" colspan="4" ><input type="text" class="tinput"  value="{{ $employees->bn_fathers_name }}"></td>
-                            <td class="py-2" style="text-align: center;">মাতার নাম:</td>
-                            <td class="py-2" colspan="3" ><input type="text" class="tinput"  value="{{ $employees->bn_mothers_name }}"></td>
+                            <td class="py-1" style="text-align: left; width: 25%;">২ । পিতার নাম:</td>
+                            <td class="py-1" colspan="4" ><input type="text" class="tinput"  value="{{ $employees->bn_fathers_name }}"></td>
+                            <td class="py-1" style="text-align: center;">মাতার নাম:</td>
+                            <td class="py-1" colspan="3" ><input type="text" class="tinput"  value="{{ $employees->bn_mothers_name }}"></td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">৩ । স্থায়ী ঠিকানা :</td>
-                            <td class="py-2" colspan="8">
+                            <td class="py-1" style="text-align: left; width: 25%;">৩ । স্থায়ী ঠিকানা :</td>
+                            <td class="py-1" colspan="8">
                                 <label for="">হোল্ডিং নং:</label>
                                 <input type="text" class="sinput" value="{{ $employees->bn_parm_holding_name }}">
                                 <label for="">ওয়ার্ড:</label>
@@ -119,7 +119,7 @@
                                 <label for="">গ্রাম:</label>
                                 <input type="text" class="sminput" value="{{ $employees->bn_parm_village_name }}">
                                 <label for="">ইউনিয়ন :</label>
-                                <input type="text" class="sbinput" value="{{ $employees->bn_parm_union_id }}">
+                                <input type="text" class="sbinput" value="{{ $employees->bn_parm_union?->name_bn }}">
                                 <label for="">পোঃ :</label>
                                 <input type="text" class="sbinput" value="{{ $employees->bn_parm_post_ofc }}">
                                 <label for="">উপজেলা :</label>
@@ -133,8 +133,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">৪ । বর্তমান ঠিকানা :</td>
-                            <td class="py-2" colspan="8">
+                            <td class="py-1" style="text-align: left; width: 25%;">৪ । বর্তমান ঠিকানা :</td>
+                            <td class="py-1" colspan="8">
                                 <label for="">হোল্ডিং নং:</label>
                                 <input type="text" class="sinput" value="{{ $employees->bn_pre_holding_no }}">
                                 <label for="">ওয়ার্ড:</label>
@@ -142,7 +142,7 @@
                                 <label for="">গ্রাম:</label>
                                 <input type="text" class="sminput" value="{{ $employees->bn_pre_village_name }}">
                                 <label for="">ইউনিয়ন :</label>
-                                <input type="text" class="sbinput" value="{{ $employees->bn_pre_union_id }}">
+                                <input type="text" class="sbinput" value="{{ $employees->bn_union?->name_bn }}">
                                 <label for="">পোঃ :</label>
                                 <input type="text" class="sbinput" value="{{ $employees->bn_pre_post_ofc }}">
                                 <label for="">উপজেলা :</label>
@@ -152,17 +152,17 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" colspan="9" style="text-align: center;"><b>(উল্লেখ্য, আমার বর্তমান ঠিকানা পরিবর্তন হলে আমি তাহা সাথে সাথে অফিস কে জানাবো)</b></td>
+                            <td class="py-1" colspan="9" style="text-align: center;"><b>(উল্লেখ্য, আমার বর্তমান ঠিকানা পরিবর্তন হলে আমি তাহা সাথে সাথে অফিস কে জানাবো)</b></td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">৫ । সনাক্তহকরণ চিহ্ন :</td>
-                            <td class="py-2" colspan="5" style="width: 35%;"><input type="text" class="tinput"  value="{{ $employees->bn_identification_mark }}"></td>
-                            <td class="py-2" style="text-align: center; width: 10%;">রক্তের গ্রুপ</td>
-                            <td class="py-2" colspan="2" style="width: 35%;"><input type="text" class="tinput"  value="{{ $employees->bloodgroup?->name_bn }}"></td>
+                            <td class="py-1" style="text-align: left; width: 25%;">৫ । সনাক্তহকরণ চিহ্ন :</td>
+                            <td class="py-1" colspan="5" style="width: 35%;"><input type="text" class="tinput"  value="{{ $employees->bn_identification_mark }}"></td>
+                            <td class="py-1" style="text-align: center; width: 10%;">রক্তের গ্রুপ</td>
+                            <td class="py-1" colspan="2" style="width: 35%;"><input type="text" class="tinput"  value="{{ $employees->bloodgroup?->name_bn }}"></td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">৬ । শিক্ষাগতা যোগ্যতা</td>
-                            <td class="py-2" colspan="8">
+                            <td class="py-1" style="text-align: left; width: 25%;">৬ । শিক্ষাগতা যোগ্যতা</td>
+                            <td class="py-1" colspan="8">
                                 <input type="text" class="sbinput" value="{{ $employees->bn_edu_qualification }}">
                                 <label for="">জন্ম তারিখ</label>
                                 <input type="text" class="sminput" value="{{ $employees->bn_dob }}">
@@ -175,16 +175,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; ">৭ । জন্ম নিবন্ধন নং :</td>
-                            <td class="py-2" colspan="8">
+                            <td class="py-1" style="text-align: left; ">৭ । জন্ম নিবন্ধন নং :</td>
+                            <td class="py-1" colspan="8">
                                 <input type="text" class="sinput"  value="{{ $employees->bn_birth_certificate }}">
                                 <label for="">জাতীয় পরিচয়পত্র নং</label>
                                 <input type="text" class="sinput"  value="{{ $employees->bn_nid_no }}">
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">৮ । জাতীয়তা :</td>
-                            <td class="py-2" colspan="8">
+                            <td class="py-1" style="text-align: left; width: 25%;">৮ । জাতীয়তা :</td>
+                            <td class="py-1" colspan="8">
                                 <input type="text" class="small"  value="{{ $employees->bn_nationality }}">
                                 <label for="">ধর্ম</label>
                                 <input type="text" class="small"  value="{{ $employees->religion?->name_bn }}">
@@ -196,8 +196,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">৯ । ওজন :</td>
-                            <td class="py-2" colspan="8">
+                            <td class="py-1" style="text-align: left; width: 25%;">৯ । ওজন :</td>
+                            <td class="py-1" colspan="8">
                                 <input type="text" class="sminput"  value="{{ $employees->bn_weight_kg }}">
                                 <label for="">কেজি</label>
                                 <label for="">অভিজ্ঞতা</label>
@@ -205,47 +205,50 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">১০ । বৈবাহিক অবস্থা :</td>
-                            <td class="py-2" colspan="8">
-                                <input type="text" class="sinput" @if($employees->bn_marital_status) value="{{ 'অবিবাহিত' }}" @else value="{{ 'বিবাহিত' }}" @endif>
+                            <td class="py-1" style="text-align: left; width: 25%;">১০ । বৈবাহিক অবস্থা :</td>
+                            <td class="py-1" colspan="8">
+                                <input type="text" class="sinput" @if($employees->bn_marital_status=='1') value="{{ 'অবিবাহিত' }}" @else value="{{ 'বিবাহিত' }}" @endif>
                                 <label for="">স্বামী/স্ত্রীর নাম</label>
                                 <input type="text" class="semiTinput"  value="{{ $employees->bn_spouse_name }}">
                                 <label for="">ছেলের নাম</label>
-                                <input type="text" class="sinput"  value="{{ $employees->bn_spouse_name }}">
+                                <input type="text" class="sinput"  value="{{ $employees->bn_song_name }}">
                                 <label for="">মেয়ের নাম</label>
-                                <input type="text" class="sinput"  value="{{ $employees->bn_spouse_name }}">
+                                <input type="text" class="sinput"  value="{{ $employees->bn_daughters_name }}">
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" colspan="9"  style="text-align: left;">
+                            <td class="py-1" colspan="9"  style="text-align: left;">
                                 <label for="">১১ । উত্তরাধীকারী (Next of Kin) এর নাম:</label>
-                                <input type="text" class="semiTinput"  value="{{ $employees->bn_legacy_name }}">
+                                <input type="text" class="sinput"  value="{{ $employees->bn_legacy_name }}">
                                 <label for="">সম্পর্ক</label>
                                 <input type="text" class="verySmall"  value="{{ $employees->bn_legacy_relation }}">
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" colspan="9"  style="text-align: left;">
+                            <td class="py-1" colspan="9"  style="text-align: left;">
                                 <label for="">১২ । ভর্তিকারীর সুপারিশ/রেফারেন্স নাম:</label>
-                                <input type="text" class="sinput"  value="{{ $employees->bn_reference_admittee }}">
+                                <input type="text" class="sinput" value="{{ $employees->bn_reference_admittee }}">
                                 <label for="">মোবাইল</label>
-                                <input type="text" class="sminput"  value="{{ $employees->bn_reference_adm_phone }}">
+                                <input type="text" class="sminput" value="{{ $employees->bn_reference_adm_phone }}">
                                 <label for="" style="padding-left: 11rem;">ঠিকানা</label>
                                 <input type="text" class="semiSinput"  value="{{ $employees->bn_reference_adm_adress }}">
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2" style="text-align: left; width: 25%;">১৩ । আবেদিত পদ :</td>
-                            <td class="py-2" colspan="8" style="width: 75%;"><input type="text" class="tinput"  value="{{ $employees->bn_applied_position }}"></td>
+                            <td class="py-1" style="text-align: left; width: 25%;">১৩ । আবেদিত পদ :</td>
+                            <td class="py-1" colspan="8" style="width: 75%;"><input type="text" class="tinput"  value="{{ $employees->bn_applied_position }}"></td>
                         </tr>
                         <tr>
-                            <th class="py-2" colspan="9"  style="text-align: left;">
-                                ১৪ । এই মর্মে আমি অঙ্গীকার করছি যে, আমার দেওয়া উপরুক্ত বিবরণ/ তথ্যাদি সম্পূর্ণ সঠিক। আমি নির্ধারিত বেতনে আবেদিত পদে অস্থায়ীভাবে এলিট সিকিউরিটি সার্ভিসেস লিমিটেড, চট্টগ্রাম এলাকায় করতে আগ্রহী।  আমি সজ্ঞানে পড়ে ও বুজে নিন্মে সাক্ষর করলাম।
+                            <th class="py-1" colspan="9"  style="text-align: left;">
+                                ১৪ । এই মর্মে আমি অঙ্গীকার করছি যে, আমার দেওয়া উপরুক্ত বিবরণ/ তথ্যাদি সম্পূর্ণ সঠিক। আমি নির্ধারিত বেতনে আবেদিত পদে অস্থায়ীভাবে এলিট সিকিউরিটি সার্ভিসেস লিমিটেড, চট্টগ্রাম এলাকায় করতে আগ্রহী।  আমি সজ্ঞানে পড়ে ও বুজে নিন্মে স্বাক্ষর করলাম।
                             </th>
                         </tr>
                         <tr>
-                            <td colspan="4" style="text-align: left; padding-top: 2rem;"><label for="">তারিখ: 01-05-2023</label></td>
-                            <td colspan="5" style="text-align: right; padding-top: 2rem; padding-right: 30px;"><label for="">(আবেদনকারীর সাক্ষর)</label></td>
+                            <td colspan="4" style="text-align: left; padding-top: 2rem;"><label for="">তারিখ: {{ date('d-M-Y', strtotime($employees->created_at)) }}</label></td>
+                            <td colspan="5" style="text-align: right; padding-top: 2rem; padding-right: 30px;">
+                                <img height="50px" width="150px"  src="{{asset('uploads/signature_img/'.$employees->signature_img)}}" alt="কোন স্বাক্ষর নেই"><br/>
+                                <label for="">(আবেদনকারীর স্বাক্ষর)</label>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -367,7 +370,10 @@
                             <th class="py-2" colspan="3">বিনীত নিবেদক</th>
                         </tr>
                         <tr>
-                            <th colspan="3" style="padding-top: 5rem;">আবেদনকারীর সাক্ষর</th>
+                            <th colspan="3" style="padding-top: 5rem;">
+                                <img height="50px" width="150px"  src="{{asset('uploads/signature_img/'.$employees->signature_img)}}" alt="কোন স্বাক্ষর নেই"><br/>
+                                আবেদনকারীর স্বাক্ষর
+                            </th>
                         </tr>
                     </tbody>
                 </table>
@@ -391,26 +397,30 @@
                             <td class="tbl_border">তারিখ {{ date('d-M-Y', strtotime($employees->created_at)) }}</td>
                         </tr>
                         <tr class="tbl_border">
-                            <td class="tbl_border">২ । নাম</td>
-                            <td class="tbl_border">{{ $employees->bn_applicants_name }}</td>
+                            <td class="tbl_border">২ । নাম :{{ $employees->bn_applicants_name }}</td>
+                            <td class="tbl_border"></td>
                         </tr>
                         <tr class="tbl_border">
                             <td class="tbl_border">২ । পিতার নাম: {{ $employees->bn_fathers_name }}</td>
                             <td class="tbl_border">
-                                আমি এই মর্মে প্রত্যয়ন করিতেছি যে (নাম )<input type="text" class="sminput"  value="{{ $employees->bn_applicants_name }}">পিতা:<input type="text" class="sminput"  value="{{ $employees->bn_fathers_name }}">মাতা:<input type="text" class="sminput"  value="কামাল">ঠিকানা :<input type="text" class="semiTinput"  value="কামাল">কে আমি পরীক্ষা করিয়াছি।
+                                আমি এই মর্মে প্রত্যয়ন করিতেছি যে (নাম )<input type="text" class="sminput"  value="{{ $employees->bn_applicants_name }}">পিতা:<input type="text" class="sminput"  value="{{ $employees->bn_fathers_name }}">
+                                মাতা:<input type="text" class="sminput"  value="{{ $employees->bn_mothers_name }}">
+                                ঠিকানা :<input type="text" class="semiTinput"  value="{{ $employees->bn_parm_village_name}}, {{ $employees->bn_parm_upazilla?->name_bn}}, {{ $employees->bn_parm_district?->name_bn }}">কে আমি পরীক্ষা করিয়াছি।
                             </td>
                         </tr>
                         <tr class="tbl_border">
-                            <td class="tbl_border">৩ । মাতার নাম:</td>
+                            <td class="tbl_border">৩ । মাতার নাম: {{ $employees->bn_mothers_name }}</td>
                             <td  class="tbl_border">
-                                আমি এই মর্মে প্রত্যয়ন করিতেছি যে (নাম )<input type="text" class="sminput"  value="কামাল">পিতা:<input type="text" class="sminput"  value="কামাল">মাতা:<input type="text" class="sminput"  value="{{ $employees->bn_mothers_name }}">ঠিকানা :<input type="text" class="semiTinput"  value="ঠিকানা">কে আমি পরীক্ষা করিয়াছি।
+                                আমি এই মর্মে প্রত্যয়ন করিতেছি যে (নাম )<input type="text" class="sminput"  value="{{ $employees->bn_applicants_name }}">পিতা:<input type="text" class="sminput"  value="{{ $employees->bn_fathers_name }}">
+                                মাতা:<input type="text" class="sminput"  value="{{ $employees->bn_mothers_name }}">
+                                ঠিকানা :<input type="text" class="semiTinput"  value="{{ $employees->bn_parm_village_name}}, {{ $employees->bn_parm_upazilla?->name_bn}}, {{ $employees->bn_parm_district?->name_bn }}">কে আমি পরীক্ষা করিয়াছি।
                             </td>
                         </tr>
                         <tr class="tbl_border">
                             <td class="tbl_border">৪ । লিঙ্গ: পুরুষ/মহিলা
                             </td>
                             <td  class="tbl_border">
-                                তিনি প্রতিষ্টানে নিযুক্ত হইতে ইচ্ছুক এবং আমার পরীক্ষা হইতে এইরূপ পাওয়া গিয়াছে যে তাহার বয়স<input type="text" class="verySmall"  value="30">বছর এবং তিনি প্রতিষ্টানে প্রাপ্ত বয়স্ক/কিশোর হিসাবে নিযুক্ত হইবার যুগ্য।
+                                তিনি প্রতিষ্টানে নিযুক্ত হইতে ইচ্ছুক এবং আমার পরীক্ষা হইতে এইরূপ পাওয়া গিয়াছে যে তাহার বয়স  <input type="text" class="verySmall text-center"  value="30">বছর এবং তিনি প্রতিষ্টানে প্রাপ্ত বয়স্ক/কিশোর হিসাবে নিযুক্ত হইবার যুগ্য।
                             </td>
                         </tr>
                         <tr class="tbl_border">
@@ -426,7 +436,7 @@
                             </td>
                         </tr>
                         <tr class="tbl_border">
-                            <td class="tbl_border">৬ । অস্থায়ী/যুগযুগের ঠিকানা - হোল্ডিং নং -<br>
+                            <td class="tbl_border">৬ । অস্থায়ী/যোগাযোগের ঠিকানা - হোল্ডিং নং - {{ $employees->bn_pre_holding_no }}<br>
                                 <label for="">গ্রাম/সড়ক:</label>{{ $employees->bn_pre_village_name }}&nbsp;&nbsp;
                                 <label for="">পোঃ:</label>{{ $employees->bn_pre_post_ofc }}&nbsp;&nbsp;<br>
                                 <label for="">উপজেলা:</label>{{ $employees->bn_upazilla?->name_bn }} &nbsp;&nbsp;<br>
@@ -436,38 +446,38 @@
                         </tr>
                         <tr class="tbl_border">
                             <td class="tbl_border">৮। জন্ম সনদ/শিক্ষা সনদ অনুসারে বয়স/জন্ম তারিখ :</td>
-                            <td  class="tbl_border">{{ $employees->bn_dob }}</td>
+                            <td  class="tbl_border">{{ date('d-M-Y', strtotime($employees->bn_dob)) }}</td>
                         </tr>
                         <tr class="tbl_border">
                             <td class="tbl_border">৯। দৈহিক সক্ষমতা :</td>
-                            <td  class="tbl_border"></td>
+                            <td  class="tbl_border">{{ $employees->bn_cer_physical_ability }}</td>
                         </tr>
                         <tr class="tbl_border">
                             <td class="tbl_border">১০। সনাক্তকরণ চিহ্ন :</td>
-                            <td  class="tbl_border"></td>
+                            <td  class="tbl_border">{{ $employees->bn_identification_mark }}</td>
                         </tr>
                         <tr class="tbl_border">
                             <td class="tbl_border">
                                 <div class="d-flex justify-content-between p-2">
                                     <div>
-                                        <img src="" alt="img">
-                                        <p>সংশ্লিষ্ট ব্যক্তির সাক্ষর/টিপসহি </p>
+                                        <img height="50px" width="150px"  src="{{asset('uploads/concerned_person_sign/'.$employees->concerned_person_sign)}}" alt="কোন স্বাক্ষর নেই"><br/>
+                                        <p>সংশ্লিষ্ট ব্যক্তির স্বাক্ষর/টিপসহি </p>
                                     </div>
                                     <div>
-                                        <img src="" alt="img">
-                                        <p>রেজিস্টার্ড চিকিৎসকের সাক্ষর</p>
+                                        <img height="50px" width="150px"  src="{{asset('uploads/bn_doctor_sign/'.$employees->bn_doctor_sign)}}" alt="কোন স্বাক্ষর নেই"><br/>
+                                        <p>রেজিস্টার্ড চিকিৎসকের স্বাক্ষর</p>
                                     </div>
                                 </div>
                             </td>
                             <td  class="tbl_border">
                                 <div class="d-flex justify-content-between p-2">
                                     <div>
-                                        <img src="" alt="img">
-                                        <p>সংশ্লিষ্ট ব্যক্তির সাক্ষর/টিপসহি </p>
+                                        <img height="50px" width="150px"  src="{{asset('uploads/concerned_person_sign/'.$employees->concerned_person_sign)}}" alt="কোন স্বাক্ষর নেই"><br/>
+                                        <p>সংশ্লিষ্ট ব্যক্তির স্বাক্ষর/টিপসহি </p>
                                     </div>
                                     <div>
-                                        <img src="" alt="img">
-                                        <p>রেজিস্টার্ড চিকিৎসকের সাক্ষর</p>
+                                        <img height="50px" width="150px"  src="{{asset('uploads/bn_doctor_sign/'.$employees->bn_doctor_sign)}}" alt="কোন স্বাক্ষর নেই"><br/>
+                                        <p>রেজিস্টার্ড চিকিৎসকের স্বাক্ষর</p>
                                     </div>
                                 </div>
                             </td>

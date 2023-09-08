@@ -59,6 +59,12 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
+                            <label for="admission_id_no">ভর্তিরপর আইডি নং</label>
+                            <input type="text" id="admission_id_no" value="{{old('admission_id_no')}}" class="form-control" placeholder="" name="admission_id_no">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
                             <label for="bn_fathers_name">পিতার নাম</label>
                             <input type="text" id="bn_fathers_name" value="{{old('bn_fathers_name')}}" class="form-control" placeholder="" name="bn_fathers_name">
                         </div>
@@ -281,7 +287,7 @@
                 <div class="row">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="bn_identification_mark">সনাক্তহকরণ চিহ্ন</label>
+                            <label for="bn_identification_mark">সনাক্তকরণ চিহ্ন</label>
                             <input type="text" id="bn_identification_mark" value="{{old('bn_identification_mark')}}" class="form-control" placeholder="" name="bn_identification_mark">
                         </div>
                     </div>
@@ -411,19 +417,19 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_song_name">ছেলের নাম</label>
-                            {{--  <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name[]">  --}}
+                            <input type="text" id="bn_song_name" value="{{old('bn_song_name')}}" class="form-control" placeholder="ছেলের নাম" name="bn_song_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="bn_daughters_name">মেয়ের নাম</label>
-                            {{--  <input type="text" id="bn_daughters_name" value="{{old('bn_daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="bn_daughters_name[]">  --}}
+                            <input type="text" id="bn_daughters_name" value="{{old('bn_daughters_name')}}" class="form-control" placeholder="মেয়ের নাম" name="bn_daughters_name">
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 ps-0">
                         <div class="form-group text-primary mt-3" style="font-size:1.3rem">
                             {{--  <span onClick='SongsRepeter(this);' class="delete-row text-danger"><i class="bi bi-trash-fill"></i></span>  --}}
-                             <span onClick='newSongsRepeter(this);'><i class="bi bi-plus-square-fill"></i></span>
+                             {{--  <span onClick='newSongsRepeter(this);'><i class="bi bi-plus-square-fill"></i></span>  --}}
                         </div>
                     </div>
                 </div>
@@ -721,7 +727,7 @@
                             <select name="en_blood_id" class="form-control js-example-basic-single" id="en_blood_id">
                                 <option value="" selected>Select</option>
                                 @forelse($bloods as $b)
-                                <option value="{{$b->id}}" {{ old('en_blood_id')==$b->id?"selected":""}}> {{ $b->name_bn}}</option>
+                                <option value="{{$b->id}}" {{ old('en_blood_id')==$b->id?"selected":""}}> {{ $b->name}}</option>
                                 @empty
                                     <option value="">No Blood found</option>
                                 @endforelse
@@ -764,7 +770,7 @@
                             <select name="en_religion" class="form-control js-example-basic-single" id="en_religion">
                                 <option value="">Select</option>
                                 @forelse($religions as $r)
-                                <option value="{{$r->id}}" {{ old('en_religion')==$r->id?"selected":""}}> {{ $r->name_bn}}</option>
+                                <option value="{{$r->id}}" {{ old('en_religion')==$r->id?"selected":""}}> {{ $r->name}}</option>
                                 @empty
                                     <option value="">No Blood found</option>
                                 @endforelse
@@ -818,7 +824,7 @@
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_marital_status">Marital Status</label>
-                            <select name="en_marital_status" class="form-control js-example-basic-single" onclick="getMarriedInfo()" id="en_marital_status">
+                            <select name="en_marital_status" class="form-control js-example-basic-single" onclick="engetMarriedInfo()" id="en_marital_status">
                                 <option value="1">Unmarried</option>
                                 <option value="2">Married</option>
                             </select>
@@ -827,27 +833,27 @@
                     <div class="col-md-3 col-12 d-none en_spouse_name1" id="en_spouse_name1">
                         <div class="form-group">
                             <label for="en_spouse_name">Spouse Name</label>
-                            {{--  <input type="text" id="en_spouse_name" value="{{old('en_spouse_name')}}" class="form-control" placeholder="" name="en_spouse_name[]">  --}}
+                            <input type="text" id="en_spouse_name" value="{{old('en_spouse_name')}}" class="form-control" placeholder="" name="en_spouse_name">
                         </div>
                     </div>
                 </div>
-                <div class="row Repeter d-none children_data" id="children_data">
+                <div class="row Repeter d-none echildren_data" id="echildren_data">
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_song_name">Son's name</label>
-                            {{--  <input type="text" id="en_song_name" value="{{old('en_song_name')}}" class="form-control" placeholder="son's Name" name="en_song_name[]">  --}}
+                            <input type="text" id="en_song_name" value="{{old('en_song_name')}}" class="form-control" placeholder="son's Name" name="en_song_name">
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="form-group">
                             <label for="en_daughters_name">Girl's name</label>
-                            {{--  <input type="text" id="en_daughters_name" value="{{old('en_daughters_name')}}" class="form-control" placeholder="Douthters name" name="en_daughters_name[]">  --}}
+                            <input type="text" id="en_daughters_name" value="{{old('en_daughters_name')}}" class="form-control" placeholder="Douthters name" name="en_daughters_name">
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 ps-0">
                         <div class="form-group text-primary mt-3" style="font-size:1.3rem">
                             {{--  <span onClick='SongsRepeter(this);' class="delete-row text-danger"><i class="bi bi-trash-fill"></i></span>  --}}
-                             <span onClick='newSongsRepeter(this);'><i class="bi bi-plus-square-fill"></i></span>
+                             {{--  <span onClick='newSongsRepeter(this);'><i class="bi bi-plus-square-fill"></i></span>  --}}
                         </div>
                     </div>
                 </div>
@@ -955,6 +961,17 @@
         }else {
             $('.bn_spouse_name1').addClass('d-none');
             $('.children_data').addClass('d-none');
+        }
+    }
+    function engetMarriedInfo() {
+        var selectedOption = document.querySelector('select[name="en_marital_status"]').value;
+
+        if (selectedOption === "2") {
+            $('.en_spouse_name1').removeClass('d-none');
+            $('.echildren_data').removeClass('d-none');
+        }else {
+            $('.en_spouse_name1').addClass('d-none');
+            $('.echildren_data').addClass('d-none');
         }
     }
     </script>

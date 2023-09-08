@@ -53,13 +53,16 @@ return new class extends Migration
             $table->string('bn_weight_pounds')->nullable();
             $table->string('bn_experience')->nullable();
             $table->string('bn_marital_status')->comment('1=unmarried,2=married')->nullable();
-            $table->string('bn_spouse_name')->nullable();
             $table->string('bn_legacy_name')->nullable();
             $table->string('bn_legacy_relation')->nullable();
             $table->string('bn_reference_admittee')->nullable();
             $table->string('bn_reference_adm_phone')->nullable();
             $table->string('bn_reference_adm_adress')->nullable();
             $table->string('bn_applied_position')->nullable();
+
+            $table->string('bn_spouse_name')->nullable();
+            $table->string('bn_song_name')->nullable();
+            $table->string('bn_daughters_name')->nullable();
 /*End Of Bangla Form */
 
 
@@ -99,13 +102,16 @@ return new class extends Migration
             $table->string('en_weight_pounds')->nullable();
             $table->string('en_experience')->nullable();
             $table->string('en_marital_status')->comment('1=unmarried,2=married')->nullable();
-            $table->string('en_spouse_name')->nullable();
             $table->string('en_legacy_name')->nullable();
             $table->string('en_legacy_relation')->nullable();
             $table->string('en_reference_admittee')->nullable();
             $table->string('en_reference_adm_phone')->nullable();
             $table->string('en_reference_adm_adress')->nullable();
             $table->string('en_applied_position')->nullable();
+
+            $table->string('en_spouse_name')->nullable();
+            $table->string('en_song_name')->nullable();
+            $table->string('en_daughters_name')->nullable();
             $table->boolean('status')->default(1)->comment('1=>active 2=>inactive');
 
             $table->boolean('bn_cer_gender')->nullable()->comment('0=>male ,1=>female');

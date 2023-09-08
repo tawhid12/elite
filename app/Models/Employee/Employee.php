@@ -20,6 +20,12 @@ class Employee extends Model
     public function bn_upazilla(){
         return $this->belongsTo(Upazila::class,'bn_pre_upazila_id','id');
     }
+    public function bn_union(){
+        return $this->belongsTo(Union::class,'bn_pre_union_id','id');
+    }
+    public function bn_parm_union(){
+        return $this->belongsTo(Union::class,'bn_parm_union_id','id');
+    }
     public function bn_parm_district(){
         return $this->belongsTo(District::class,'bn_parm_district_id','id');
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Employee;
 use App\Http\Controllers\Controller;
 
 use App\Models\Employee\Employee;
+use App\Models\Employee\EmployeeDetails;
 use App\Models\Employee\SecurityPriorAcquaintance;
 use Illuminate\Http\Request;
 
@@ -68,7 +69,8 @@ class EmployeeController extends Controller
             $employee->bn_applicants_name = $request->bn_applicants_name;
             $employee->bn_fathers_name = $request->bn_fathers_name;
             $employee->bn_mothers_name = $request->bn_mothers_name;
-            $employee->admission_id_no = 'AD-'.Carbon::now()->format('m-y').'-'. str_pad((Employee::whereYear('created_at', Carbon::now()->year)->count() + 1),4,"0",STR_PAD_LEFT);
+            $employee->admission_id_no = $request->admission_id_no;
+            // $employee->admission_id_no = 'AD-'.Carbon::now()->format('m-y').'-'. str_pad((Employee::whereYear('created_at', Carbon::now()->year)->count() + 1),4,"0",STR_PAD_LEFT);
 
             $employee->bn_parm_district_id = $request->bn_parm_district_id;
             $employee->bn_parm_upazila_id = $request->bn_parm_upazila_id;
@@ -102,7 +104,6 @@ class EmployeeController extends Controller
             $employee->bn_weight_pounds = $request->bn_weight_pounds;
             $employee->bn_experience = $request->bn_experience;
             $employee->bn_marital_status = $request->bn_marital_status;
-            $employee->bn_spouse_name = $request->bn_spouse_name;
             $employee->bn_legacy_name = $request->bn_legacy_name;
             $employee->bn_legacy_relation = $request->bn_legacy_relation;
             $employee->bn_reference_admittee = $request->bn_reference_admittee;
@@ -146,7 +147,6 @@ class EmployeeController extends Controller
             $employee->en_weight_pounds = $request->en_weight_pounds;
             $employee->en_experience = $request->en_experience;
             $employee->en_marital_status = $request->en_marital_status;
-            $employee->en_spouse_name = $request->en_spouse_name;
             $employee->en_legacy_name = $request->en_legacy_name;
             $employee->en_legacy_relation = $request->en_legacy_relation;
             $employee->en_reference_admittee = $request->en_reference_admittee;
@@ -155,6 +155,13 @@ class EmployeeController extends Controller
             $employee->en_applied_position = $request->en_applied_position;
             $employee->bn_cer_gender = $request->bn_cer_gender;
             $employee->bn_cer_physical_ability = $request->bn_cer_physical_ability;
+
+            $employee->bn_spouse_name = $request->bn_spouse_name;
+            $employee->bn_song_name = $request->bn_song_name;
+            $employee->bn_daughters_name = $request->bn_daughters_name;
+            $employee->en_spouse_name = $request->en_spouse_name;
+            $employee->en_song_name = $request->en_song_name;
+            $employee->en_daughters_name = $request->en_daughters_name;
             if($request->has('concerned_person_sign'))
             $employee->concerned_person_sign=$this->uploadImage($request->concerned_person_sign,'uploads/concerned_person_sign/');
             if($request->has('bn_doctor_sign'))
@@ -170,6 +177,26 @@ class EmployeeController extends Controller
             } else {
                 return redirect()->back()->withInput()->with(Toastr::error('Please try again!', 'Fail', ["positionClass" => "toast-top-right"]));
             }
+
+            // if($employee->save()){
+            //     if($request->bn_song_name || $request->bn_daughters_name){
+            //         foreach($request->bn_spouse_name as $key => $value){
+            //             // dd($request->all());
+            //             if($value){
+            //                 $details = new EmployeeDetails;
+            //                 $details->employee_id=$employee->id;
+            //                 $details->bn_song_name=$request->bn_song_name[$key];
+            //                 $details->bn_daughters_name=$request->bn_daughters_name[$key];
+            //                 $details->save();
+            //             }
+            //         }
+            //     }
+            // Toastr::success('Create Successfully!');
+            // return redirect()->route('employee.index', ['role' =>currentUser()])->with(Toastr::success('Data Saved!', 'Success', ["positionClass" => "toast-top-right"]));
+            // } else{
+            // Toastr::warning('Please try Again!');
+            // return redirect()->back()->withInput()->with(Toastr::error('Please try again!', 'Fail', ["positionClass" => "toast-top-right"]));
+            // }
         } catch (Exception $e) {
             dd($e);
             return redirect()->back()->withInput()->with(Toastr::error('Please try again!', 'Fail', ["positionClass" => "toast-top-right"]));
